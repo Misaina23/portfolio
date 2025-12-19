@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANDRIANISAINA Nanga Miaramanana - MisainaDEV</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.dark { background-color: #0f172a; color: #f1f5f9; }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+.animate-slideInLeft {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+section {
+  opacity: 0;
+}
+section.visible {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+.skill-card {
+  transition: all 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.project-card {
+  transition: all 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.dark .bg-white { background-color: #1e293b; }
+.dark .text-gray-900 { color: #f1f5f9; }
+.dark .text-gray-600 { color: #94a3b8; }
+.dark .text-gray-700 { color: #cbd5e1; }
+.dark .border-gray-200 { border-color: #334155; }
+.dark .bg-gray-50 { background-color: #1e293b; }
+.dark .bg-gray-100 { background-color: #334155; }
+.hero-bg { background-image: url('https://readdy.ai/api/search-image?query=modern%20professional%20developer%20workspace%20with%20clean%20minimalist%20design%2C%20soft%20lighting%2C%20elegant%20computer%20setup%2C%20contemporary%20office%20environment%2C%20subtle%20tech%20elements%2C%20sophisticated%20atmosphere%2C%20left%20side%20empty%20space%20for%20text%20overlay%2C%20right%20side%20focused%20content&width=1920&height=800&seq=hero001&orientation=landscape'); }
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#3b82f6',
+secondary: '#1e40af'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+</head>
+<body class="bg-white text-gray-900 transition-colors duration-300">
+<header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50 transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<span class="text-xl sm:text-2xl font-['Pacifico'] text-primary">DevMisaina</span>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a href="#accueil" class="text-gray-700 hover:text-primary transition-colors whitespace-nowrap">Accueil</a>
+<a href="#competences" class="text-gray-700 hover:text-primary transition-colors whitespace-nowrap">Compétences</a>
+<a href="#projets" class="text-gray-700 hover:text-primary transition-colors whitespace-nowrap">Projets</a>
+<a href="#formation" class="text-gray-700 hover:text-primary transition-colors whitespace-nowrap">Formation</a>
+<a href="#experience" class="text-gray-700 hover:text-primary transition-colors whitespace-nowrap">Expérience</a>
+<a href="#contact" class="text-gray-700 hover:text-primary transition-colors whitespace-nowrap">Contact</a>
+</nav>
+<div class="flex items-center space-x-2 sm:space-x-4">
+<button id="theme-toggle" class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+<i class="ri-sun-line text-lg"></i>
+</button>
+<a href="#contact" class="hidden sm:inline-flex bg-primary text-white px-4 py-2 !rounded-button hover:bg-secondary transition-colors whitespace-nowrap">
+Contact Rapide
+</a>
+<button id="mobile-menu-button" class="md:hidden w-8 h-8 flex items-center justify-center">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 transition-all duration-300">
+<div class="px-4 py-2 space-y-1">
+<a href="#accueil" class="block py-2 text-gray-700 hover:text-primary transition-colors">Accueil</a>
+<a href="#competences" class="block py-2 text-gray-700 hover:text-primary transition-colors">Compétences</a>
+<a href="#projets" class="block py-2 text-gray-700 hover:text-primary transition-colors">Projets</a>
+<a href="#formation" class="block py-2 text-gray-700 hover:text-primary transition-colors">Formation</a>
+<a href="#experience" class="block py-2 text-gray-700 hover:text-primary transition-colors">Expérience</a>
+<a href="#contact" class="block py-2 text-gray-700 hover:text-primary transition-colors">Contact</a>
+</div>
+</div>
+</header>
+<main>
+<section id="accueil" class="hero-bg bg-cover bg-center bg-no-repeat min-h-screen flex items-center">
+<div class="bg-black bg-opacity-20 w-full min-h-screen flex items-center">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+<div class="flex flex-col lg:flex-row items-center justify-between">
+<div class="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0 w-full">
+<div class="bg-white bg-opacity-95 p-4 sm:p-8 rounded-2xl shadow-xl">
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+ANDRIANISAINA<br>
+<span class="text-primary">Nanga Miaramanana</span>
+</h1>
+<p class="text-lg sm:text-xl text-gray-600 mb-6">Développeur Web et mobile</p>
+<p class="text-gray-700 mb-8 leading-relaxed">
+Passionné par le développement web et mobile, je crée des solutions innovantes
+avec des technologies modernes. Spécialisé dans Vue.js, React, Laravel et Django,
+j'accompagne vos projets de la conception à la mise en production.
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button id="download-cv-btn" class="bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base !rounded-button hover:bg-secondary transition-colors whitespace-nowrap">
+<i class="ri-download-line mr-2"></i>
+Télécharger CV
+</button>
+<a href="#contact" class="border-2 border-primary text-primary px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base !rounded-button hover:bg-primary hover:text-white transition-colors whitespace-nowrap text-center">
+Me Contacter
+</a>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 flex justify-center">
+<div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white">
+<img src="./saina.jpg"
+alt="ANDRIANISAINA Nanga Miaramanana"
+class="w-full h-full object-cover object-top">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="competences" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Mes Compétences</h2>
+<p class="text-xl text-gray-600">Technologies et outils que je maîtrise</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-8">
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center skill-card">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-green-100 rounded-full">
+<i class="ri-vuejs-line text-2xl text-green-600"></i>
+</div>
+<h3 class="font-semibold text-gray-900">Vue.js</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center skill-card">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-red-100 rounded-full">
+<i class="ri-reactjs-line text-2xl text-red-600"></i>
+</div>
+<h3 class="font-semibold text-gray-900">React</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center skill-card">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-red-100 rounded-full">
+<i class="ri-code-s-slash-line text-2xl text-red-600"></i>
+</div>
+<h3 class="font-semibold text-gray-900">Laravel</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center skill-card">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-green-100 rounded-full">
+<i class="ri-code-box-line text-2xl text-green-600"></i>
+</div>
+<h3 class="font-semibold text-gray-900">Django</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center skill-card">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-orange-100 rounded-full">
+<i class="ri-code-line text-2xl text-orange-600"></i>
+</div>
+<h3 class="font-semibold text-gray-900">JSP</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center skill-card">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-purple-100 rounded-full">
+<i class="ri-code-s-slash-line text-2xl text-purple-600"></i>
+</div>
+<h3 class="font-semibold text-gray-900">Symfony</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center skill-card">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-blue-100 rounded-full">
+<i class="ri-database-2-line text-2xl text-blue-600"></i>
+</div>
+<h3 class="font-semibold text-gray-900">MySQL</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center skill-card">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-blue-100 rounded-full">
+<i class="ri-database-2-line text-2xl text-blue-600"></i>
+</div>
+<h3 class="font-semibold text-gray-900">PostgreSQL</h3>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center skill-card">
+<div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-blue-100 rounded-full">
+<i class="ri-database-2-line text-2xl text-blue-600"></i>
+</div>
+<h3 class="font-semibold text-gray-900">SQL</h3>
+</div>
+</div>
+</div>
+</section>
+<section id="projets" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Mes Projets</h2>
+<p class="text-xl text-gray-600">Découvrez mes réalisations récentes</p>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+<div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow project-card">
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-900 mb-3">Gestion de Pointage Personnel</h3>
+<p class="text-gray-600 mb-4">Système de gestion de pointage pour le Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Vue.js</span>
+<span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Laravel</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">MySQL</span>
+</div>
+<button class="text-primary hover:text-secondary font-semibold whitespace-nowrap">
+Voir le projet <i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow project-card">
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-900 mb-3">Gestion Distribution Semences</h3>
+<p class="text-gray-600 mb-4">Application de gestion et suivi de distribution de semences agricoles</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Vue.js</span>
+<span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Django</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">MySQL</span>
+</div>
+<button class="text-primary hover:text-secondary font-semibold whitespace-nowrap">
+Voir le projet <i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow project-card">
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-900 mb-3">Gestion de Restauration</h3>
+<p class="text-gray-600 mb-4">Système complet de gestion pour établissements de restauration</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">JSP</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">MySQL</span>
+</div>
+<button class="text-primary hover:text-secondary font-semibold whitespace-nowrap">
+Voir le projet <i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow project-card">
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-900 mb-3">Suivi Aide Humanitaire</h3>
+<p class="text-gray-600 mb-4">Plateforme de suivi et coordination des actions d'aide humanitaire</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">React</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">Next.js</span>
+<span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Laravel</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">MySQL</span>
+</div>
+<button class="text-primary hover:text-secondary font-semibold whitespace-nowrap">
+Voir le projet <i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow project-card">
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-900 mb-3">Gestion Matériel et Stock</h3>
+<p class="text-gray-600 mb-4">Système de gestion de matériel et stock lié aux contrats de personnel</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">React</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">Next.js</span>
+<span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Laravel</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">MySQL</span>
+</div>
+<button class="text-primary hover:text-secondary font-semibold whitespace-nowrap">
+Voir le projet <i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow project-card">
+<div class="p-6">
+<h3 class="text-xl font-bold text-gray-900 mb-3">Gestion de Distribution de Kit Scolaire</h3>
+<p class="text-gray-600 mb-4">Système de gestion et suivi de distribution de kits scolaires au sein de Cisco Midingy Atsimo</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Vue.js</span>
+<span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Laravel</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">MySQL</span>
+</div>
+<button class="text-primary hover:text-secondary font-semibold whitespace-nowrap">
+Voir le projet <i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="formation" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Formation</h2>
+<p class="text-xl text-gray-600">Mon parcours académique</p>
+</div>
+<div class="max-w-3xl mx-auto">
+<div class="bg-white rounded-xl shadow-lg p-8">
+<div class="flex items-start space-x-4">
+<div class="w-16 h-16 flex-shrink-0">
+<img src="./logo.png" alt="Logo ENI" class="w-full h-full object-contain rounded">
+</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-gray-900 mb-2">École Nationale Informatique</h3>
+<p class="text-lg text-primary font-semibold mb-2">Licence en Informatique</p>
+<p class="text-gray-600 mb-4">Parcours Génie Logiciel et Base de Données</p>
+<div class="bg-gray-50 p-4 rounded-lg">
+<h4 class="font-semibold text-gray-900 mb-2">Compétences acquises :</h4>
+<ul class="text-gray-600 space-y-1">
+<li>• Développement d'applications web et mobiles</li>
+<li>• Conception et gestion de bases de données</li>
+<li>• Architecture logicielle et patterns de conception</li>
+<li>• Méthodologies de développement agile</li>
+<li>• Gestion de projets informatiques</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-8 mt-8">
+<div class="flex items-start space-x-4">
+<div class="w-20 h-20 flex-shrink-0">
+<img src="./dimagi.png" alt="Logo Dimagi" class="w-full h-full object-contain rounded">
+</div>
+<div class="flex-1">
+<h3 class="text-2xl font-bold text-gray-900 mb-2">DIMAGI ACADEMY</h3>
+<p class="text-lg text-primary font-semibold mb-2">Certificat en CommCare Fondamentale et Développement d'Application</p>
+<p class="text-gray-600 mb-4">Formation et certification en développement d'applications mobiles avec CommCare pour la collecte de données et la gestion de programmes.</p>
+<div class="bg-gray-50 p-4 rounded-lg">
+<h4 class="font-semibold text-gray-900 mb-2">Compétences acquises :</h4>
+<ul class="text-gray-600 space-y-1">
+<li>• Développement d'applications CommCare</li>
+<li>• Collecte et gestion de données mobiles</li>
+<li>• Conception d'interfaces utilisateur pour applications humanitaires</li>
+<li>• Intégration de workflows complexes</li>
+<li>• Analyse et reporting de données</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="experience" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Expérience Professionnelle</h2>
+<p class="text-xl text-gray-600">Mes stages et expériences</p>
+</div>
+<div class="max-w-4xl mx-auto space-y-8">
+<div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-orange-500 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+<h3 class="text-xl font-bold text-gray-900">Welthungerhilfe (WHH)</h3>
+<span class="text-secondary font-semibold">Stage gestionnaire de base de données</span>
+</div>
+<p class="text-gray-600 mb-4">
+Participation au développement d'outils de suivi des programmes d'aide humanitaire.
+Création d'interfaces de gestion et de rapports pour le suivi des bénéficiaires.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">React</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">Next.js</span>
+<span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Laravel</span>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-secondary">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+<h3 class="text-xl font-bold text-gray-900">Ministère de l'Enseignement Supérieur</h3>
+<span class="text-secondary font-semibold">Stage Développeur</span>
+</div>
+<p class="text-gray-600 mb-4">
+Développement du système de gestion de pointage du personnel. Mise en place d'une solution
+complète de suivi des présences avec interface administrateur et rapports automatisés.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Vue.js</span>
+<span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Laravel</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">MySQL</span>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-primary">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+<h3 class="text-xl font-bold text-gray-900">Conservation International Madagascar</h3>
+<span class="text-primary font-semibold">Prestataire</span>
+</div>
+<p class="text-gray-600 mb-4">
+Prestataire et appui pour l'élaboration de base de données environnementales.
+Conception et développement de systèmes de gestion de données pour la conservation de la biodiversité.
+Mise en place d'outils de suivi et d'analyse des indicateurs environnementaux.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full hover:bg-green-200 transition-colors">Elaboration de Base de Données</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full hover:bg-blue-200 transition-colors">Analyse de Données</span>
+<span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full hover:bg-purple-200 transition-colors">traitement de données</span>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-green-500 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+<h3 class="text-xl font-bold text-gray-900">Cisco Midingy Atsimo</h3>
+<span class="text-secondary font-semibold">Stage Développeur</span>
+</div>
+<p class="text-gray-600 mb-4">
+Développement d'une application de gestion de distribution de kits scolaires.
+Conception et mise en place d'un système complet de suivi et gestion des kits éducatifs.
+</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Vue.js</span>
+<span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Laravel</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">MySQL</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Contactez-moi</h2>
+<p class="text-xl text-gray-600">Discutons de votre prochain projet</p>
+</div>
+<div class="grid lg:grid-cols-2 gap-12">
+<div>
+<h3 class="text-2xl font-bold text-gray-900 mb-6">Envoyez-moi un message</h3>
+<form class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Nom complet</label>
+<input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Votre nom complet">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+<input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="votre@email.com">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Sujet</label>
+<input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Sujet de votre message">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+<textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm" placeholder="Décrivez votre projet ou votre demande..."></textarea>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 px-6 !rounded-button hover:bg-secondary transition-colors font-semibold whitespace-nowrap">
+<i class="ri-send-plane-line mr-2"></i>
+Envoyer le message
+</button>
+</form>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-gray-900 mb-6">Informations de contact</h3>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary rounded-lg flex-shrink-0">
+<i class="ri-mail-line text-white text-lg"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900">Email</h4>
+<p class="text-gray-600">andrianisaina23@gmail.com</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary rounded-lg flex-shrink-0">
+<i class="ri-phone-line text-white text-lg"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900">Téléphone</h4>
+<p class="text-gray-600">+261 34 95 441 74</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary rounded-lg flex-shrink-0">
+<i class="ri-map-pin-line text-white text-lg"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900">Localisation</h4>
+<p class="text-gray-600">Antananarivo, Madagascar</p>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h4 class="font-semibold text-gray-900 mb-4">Réseaux sociaux</h4>
+<div class="flex space-x-4">
+<a href="#" class="w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+<i class="ri-linkedin-fill text-lg"></i>
+</a>
+<a href="#" class="w-12 h-12 flex items-center justify-center bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">
+<i class="ri-github-fill text-lg"></i>
+</a>
+<a href="#" class="w-12 h-12 flex items-center justify-center bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+<i class="ri-twitter-fill text-lg"></i>
+</a>
+</div>
+</div>
+<div class="mt-8">
+<button id="download-cv-btn-2" class="bg-secondary text-white px-6 py-3 !rounded-button hover:bg-primary transition-colors font-semibold whitespace-nowrap">
+<i class="ri-download-line mr-2"></i>
+Télécharger mon CV
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-white py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-3 gap-8">
+<div>
+<span class="text-2xl font-['Pacifico'] text-primary">DevMisaina</span>
+<p class="text-gray-400 mt-4">
+Développeur Full Stack Junior,passionné créant des solutions innovantes
+pour vos projets web et mobiles.
+</p>
+</div>
+<div>
+<h3 class="font-semibold text-lg mb-4">Liens rapides</h3>
+<ul class="space-y-2 text-gray-400">
+<li><a href="#accueil" class="hover:text-white transition-colors">Accueil</a></li>
+<li><a href="#competences" class="hover:text-white transition-colors">Compétences</a></li>
+<li><a href="#projets" class="hover:text-white transition-colors">Projets</a></li>
+<li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-lg mb-4">Contact</h3>
+<div class="space-y-2 text-gray-400">
+<p>andrianisaina23@gmail.com</p>
+<p>+261 34 95 441 74</p>
+<p>Antananarivo, Madagascar</p>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400">© 2025 DevMisaina. Tous droits réservés.</p>
+<div class="flex space-x-4 mt-4 md:mt-0">
+<a href="#" class="text-gray-400 hover:text-white transition-colors">Mentions légales</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">Politique de confidentialité</a>
+</div>
+</div>
+</div>
+</footer>
+<div id="toast" class="fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50"></div>
+<script id="theme-toggle-script">
+document.addEventListener('DOMContentLoaded', function() {
+const themeToggle = document.getElementById('theme-toggle');
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const body = document.body;
+const icon = themeToggle.querySelector('i');
+let isDark = false;
+let isMobileMenuOpen = false;
+themeToggle.addEventListener('click', function() {
+isDark = !isDark;
+if (isDark) {
+body.classList.add('dark');
+icon.className = 'ri-moon-line text-lg';
+} else {
+body.classList.remove('dark');
+icon.className = 'ri-sun-line text-lg';
+}
+});
+mobileMenuButton.addEventListener('click', function() {
+isMobileMenuOpen = !isMobileMenuOpen;
+if (isMobileMenuOpen) {
+mobileMenu.classList.remove('hidden');
+mobileMenuButton.querySelector('i').className = 'ri-close-line text-xl';
+} else {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.querySelector('i').className = 'ri-menu-line text-xl';
+}
+});
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', () => {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.querySelector('i').className = 'ri-menu-line text-xl';
+isMobileMenuOpen = false;
+});
+});
+});
+</script>
+<script id="animation-script">
+document.addEventListener('DOMContentLoaded', function() {
+const sections = document.querySelectorAll('section');
+const skillCards = document.querySelectorAll('.skill-card');
+const projectCards = document.querySelectorAll('.project-card');
+const observerOptions = {
+  threshold: 0.2,
+  rootMargin: '0px'
+};
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+sections.forEach(section => {
+  sectionObserver.observe(section);
+});
+skillCards.forEach((card, index) => {
+  card.style.animationDelay = `${index * 0.1}s`;
+});
+projectCards.forEach((card, index) => {
+  card.style.animationDelay = `${index * 0.1}s`;
+});
+});
+</script>
+<script id="smooth-scroll-script">
+document.addEventListener('DOMContentLoaded', function() {
+const links = document.querySelectorAll('a[href^="#"]');
+links.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+targetElement.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+});
+});
+});
+</script>
+<script id="cv-download-script">
+document.addEventListener('DOMContentLoaded', function() {
+const downloadButtons = [
+document.getElementById('download-cv-btn'),
+document.getElementById('download-cv-btn-2')
+];
+const toast = document.getElementById('toast');
+function showToast(message, duration = 3000) {
+toast.textContent = message;
+toast.classList.remove('translate-y-full', 'opacity-0');
+toast.classList.add('translate-y-0', 'opacity-100');
+setTimeout(() => {
+toast.classList.add('translate-y-full', 'opacity-0');
+toast.classList.remove('translate-y-0', 'opacity-100');
+}, duration);
+}
+function handleDownload() {
+showToast('CV en cours de téléchargement...');
+setTimeout(() => {
+const link = document.createElement('a');
+link.href = './sainacv.PDF';
+link.download = 'sainacv.PDF';
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+setTimeout(() => {
+showToast('Téléchargement terminé');
+}, 1500);
+}, 1000);
+}
+downloadButtons.forEach(button => {
+if (button) {
+button.addEventListener('click', handleDownload);
+}
+});
+});
+</script>
+<script id="contact-form-script">
+document.addEventListener('DOMContentLoaded', function() {
+const form = document.querySelector('form');
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+const formData = new FormData(form);
+const name = form.querySelector('input[type="text"]').value;
+const email = form.querySelector('input[type="email"]').value;
+const subject = form.querySelectorAll('input[type="text"]')[1].value;
+const message = form.querySelector('textarea').value;
+if (name && email && subject && message) {
+alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
+form.reset();
+} else {
+alert('Veuillez remplir tous les champs du formulaire.');
+}
+});
+});
+</script>
+</body>
+</html>
