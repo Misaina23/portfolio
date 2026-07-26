@@ -17,8 +17,9 @@ import {
   SiTypescript,
   SiSupabase,
   SiApache,
+  SiDotnet,
 } from "react-icons/si";
-import { FaMobileScreen, FaSchool, FaBoxOpen, FaPlane, FaUtensils } from "react-icons/fa6";
+import { FaMobileScreen, FaSchool, FaBoxOpen, FaPlane, FaUtensils, FaBrain, FaShield, FaServer, FaMagnifyingGlass } from "react-icons/fa6";
 import { PiPlantFill } from "react-icons/pi";
 
 export const profile = {
@@ -30,7 +31,7 @@ export const profile = {
     "Je conçois des applications web et mobiles performantes, de la base de données à l'interface, pour transformer vos idées en produits concrets.",
   email: "andrianisaina23@gmail.com",
   phone: "+261 34 95 441 74",
-  location: "Antananarivo, Madagascar",
+  location: "Fianarantsoa, Madagascar",
   photo: "/images/Saina.png",
   cv: "/documents/sainacv.PDF",
   socials: {
@@ -42,7 +43,7 @@ export const profile = {
 
 export const about = {
   description:
-    "Passionné par le développement web et mobile, je crée des solutions innovantes avec des technologies modernes. Spécialisé dans Vue.js, React, Laravel et Django, j'accompagne vos projets de la conception à la mise en production.",
+    "Passionné par le développement web et mobile, je conçois des solutions complètes associant des technologies backend éprouvées à des interfaces modernes. Spécialisé dans Vue.js, React, TypeScript, Laravel et Django, je développe également des applications et systèmes intelligents basés sur la programmation logique.",
   highlights: [
     {
       icon: "code",
@@ -155,27 +156,31 @@ export type Skill = { name: string; level: number; icon: IconType };
 export type SkillCategory = { name: string; icon: IconType; skills: Skill[] };
 
 export const skillCategories: SkillCategory[] = [
-  {
-    name: "Frontend",
-    icon: SiReact,
-    skills: [
-      { name: "Next.js", level: 90, icon: SiNextdotjs },
-      { name: "React", level: 90, icon: SiReact },
-      { name: "Vue.js", level: 85, icon: SiVuedotjs },
-      { name: "HTML / CSS", level: 95, icon: SiHtml5 },
-      { name: "JavaScript", level: 90, icon: SiJavascript },
-    ],
-  },
-  {
-    name: "Backend",
-    icon: SiLaravel,
-    skills: [
-      { name: "Laravel", level: 85, icon: SiLaravel },
-      { name: "PHP", level: 85, icon: SiPhp },
-      { name: "API REST", level: 88, icon: SiApache },
-      { name: "Django", level: 80, icon: SiDjango },
-    ],
-  },
+   {
+     name: "Frontend",
+     icon: SiReact,
+     skills: [
+       { name: "Next.js", level: 90, icon: SiNextdotjs },
+       { name: "React", level: 90, icon: SiReact },
+       { name: "Vue.js", level: 85, icon: SiVuedotjs },
+       { name: "TypeScript", level: 88, icon: SiTypescript },
+       { name: "HTML / CSS", level: 95, icon: SiHtml5 },
+       { name: "JavaScript", level: 90, icon: SiJavascript },
+     ],
+   },
+   {
+     name: "Backend",
+     icon: SiLaravel,
+     skills: [
+       { name: "Laravel / PHP", level: 85, icon: SiLaravel },
+       { name: "ASP.NET Core / C#", level: 78, icon: SiDotnet },
+       { name: "Django / Python", level: 80, icon: SiDjango },
+       { name: "API REST", level: 88, icon: SiApache },
+       { name: "Authentification JWT", level: 85, icon: FaShield },
+       { name: "Gestion des bases de données", level: 90, icon: SiMysql },
+       { name: "Architecture backend", level: 85, icon: FaServer },
+     ],
+   },
   {
     name: "Mobile",
     icon: FaMobileScreen,
@@ -184,16 +189,23 @@ export const skillCategories: SkillCategory[] = [
       { name: "React Native", level: 82, icon: SiReact },
     ],
   },
-  {
-    name: "Base de données",
-    icon: SiMysql,
-    skills: [
-      { name: "MySQL", level: 90, icon: SiMysql },
-      { name: "MongoDB", level: 78, icon: SiMongodb },
-      { name: "PostgreSQL", level: 82, icon: SiPostgresql },
-    ],
-  },
-];
+   {
+     name: "Base de données",
+     icon: SiMysql,
+     skills: [
+       { name: "MySQL", level: 90, icon: SiMysql },
+       { name: "MongoDB", level: 78, icon: SiMongodb },
+       { name: "PostgreSQL", level: 82, icon: SiPostgresql },
+     ],
+   },
+   {
+     name: "Langages",
+     icon: SiJavascript,
+     skills: [
+       { name: "Prolog", level: 75, icon: FaBrain },
+     ],
+   },
+ ];
 
 export type Project = {
   title: string;
@@ -362,24 +374,42 @@ export const academicProjects: AcademicProject[] = [
     github: "#",
     demo: "#",
   },
-  {
-    title: "Réservation de restaurant",
-    context: "Application web",
-    description:
-      "Application permettant aux clients de réserver des tables et aux administrateurs de gérer les réservations.",
-    technologies: ["Java JSP", "Java EE", "Base de données relationnelle"],
-    features: [
-      "Gestion des clients",
-      "Réservation de tables",
-      "Gestion des disponibilités",
-      "Suivi des réservations",
-    ],
-    categories: ["Web", "Data Management"],
-    icon: FaUtensils,
-    github: "#",
-    demo: "#",
-  },
-];
+   {
+     title: "Réservation de restaurant",
+     context: "Application web",
+     description:
+       "Application permettant aux clients de réserver des tables et aux administrateurs de gérer les réservations.",
+     technologies: ["Java JSP", "Java EE", "Base de données relationnelle"],
+     features: [
+       "Gestion des clients",
+       "Réservation de tables",
+       "Gestion des disponibilités",
+       "Suivi des réservations",
+     ],
+     categories: ["Web", "Data Management"],
+     icon: FaUtensils,
+     github: "#",
+     demo: "#",
+   },
+   {
+     title: "Application d'enquête policière intelligente",
+     context: "Projet académique",
+     description:
+       "Application académique développée avec Prolog et TypeScript permettant de simuler une enquête policière basée sur un système de raisonnement logique. L'application permet de gérer des faits, des règles, des indices, des suspects et d'effectuer une analyse de scénarios afin d'aider à résoudre une enquête.",
+     technologies: ["Prolog", "TypeScript", "Programmation logique", "Intelligence artificielle / système expert"],
+     features: [
+       "Gestion des suspects et des informations d'enquête",
+       "Gestion des indices et des preuves",
+       "Système de déduction logique basé sur des règles Prolog",
+       "Recherche et analyse des scénarios possibles",
+       "Interface utilisateur développée avec TypeScript",
+     ],
+     categories: ["Full Stack"],
+     icon: FaMagnifyingGlass,
+     github: "#",
+     demo: "#",
+   },
+ ];
 
 export type Service = {
   icon: IconType;
@@ -447,4 +477,10 @@ export const techIcon: Record<string, IconType> = {
   "Base de données relationnelle": SiMysql,
   "Analyse de données": SiMysql,
   "Traitement de données": SiMysql,
+  "Prolog": FaBrain,
+  "Programmation logique": FaBrain,
+  "Intelligence artificielle / système expert": FaBrain,
+  "ASP.NET Core / C#": SiDotnet,
+  "Authentification JWT": FaShield,
+  "Architecture backend": FaServer,
 };

@@ -15,7 +15,7 @@ export function Skills() {
           subtitle="Un socle full stack couvrant le web, le mobile et la donnée."
         />
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {skillCategories.map((cat, ci) => {
             const CatIcon = cat.icon;
             return (
