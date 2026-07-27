@@ -4,22 +4,25 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { profile } from "@/lib/data";
+import { useLanguage, useT } from "@/lib/i18n";
 
 const links = [
-  { href: "#accueil", label: "Accueil" },
-  { href: "#apropos", label: "À propos" },
-  { href: "#competences", label: "Compétences" },
-  { href: "#experience", label: "Expérience" },
-  { href: "#formation", label: "Formation" },
-  { href: "#projets", label: "Projets" },
-  { href: "#academique", label: "Académique" },
-  { href: "#services", label: "Services" },
-  { href: "#contact", label: "Contact" },
+  { href: "#accueil", key: "home" },
+  { href: "#apropos", key: "about" },
+  { href: "#competences", key: "skills" },
+  { href: "#experience", key: "experience" },
+  { href: "#formation", key: "education" },
+  { href: "#projets", key: "projects" },
+  { href: "#academique", key: "academic" },
+  { href: "#services", key: "services" },
+  { href: "#contact", key: "contact" },
 ];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { locale, setLocale } = useLanguage();
+  const t = useT();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -27,6 +30,10 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const switchTo = (next: "fr" | "en") => {
+    if (next !== locale) setLocale(next);
+  };
 
   return (
     <header
@@ -54,12 +61,34 @@ export function Navbar() {
               href={link.href}
               className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
-              {link.label}
+              {t.nav[link.key as keyof typeof t.nav]}
             </a>
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          <div className="hidden items-center gap-1 rounded-full border border-border bg-card p-1 sm:flex">
+            <button
+              type="button"
+              onClick={() => switchTo("fr")}
+              className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+                locale === "fr" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label="Français"
+            >
+              🇫🇷 FR
+            </button>
+            <button
+              type="button"
+              onClick={() => switchTo("en")}
+              className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+                locale === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label="English"
+            >
+              🇬🇧 EN
+            </button>
+          </div>
           <ThemeToggle />
           <button
             type="button"
@@ -85,9 +114,29 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
             >
-              {link.label}
+              {t.nav[link.key as keyof typeof t.nav]}
             </a>
           ))}
+          <div className="flex items-center gap-2 pt-2">
+            <button
+              type="button"
+              onClick={() => switchTo("fr")}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                locale === "fr" ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"
+              }`}
+            >
+              🇫🇷 FR
+            </button>
+            <button
+              type="button"
+              onClick={() => switchTo("en")}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                locale === "en" ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"
+              }`}
+            >
+              🇬🇧 EN
+            </button>
+          </div>
         </div>
       </div>
     </header>

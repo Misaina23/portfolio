@@ -3,17 +3,20 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
-import { services } from "@/lib/data";
+import { useServices, useT } from "@/lib/i18n";
 import { EASE } from "@/lib/motion";
 
 export function Services() {
+  const services = useServices();
+  const t = useT();
+
   return (
     <section id="services" className="bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Services"
-          title="Ce que je peux faire pour vous"
-          subtitle="Des prestations sur mesure pour donner vie à vos projets numériques."
+          eyebrow={t.services.eyebrow}
+          title={t.services.title}
+          subtitle={t.services.subtitle}
         />
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

@@ -4,17 +4,21 @@ import { ArrowUpRight, Link2 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { projects, techIcon } from "@/lib/data";
+import { useProjects, useT } from "@/lib/i18n";
+import { techIcon } from "@/lib/data";
 import { EASE } from "@/lib/motion";
 
 export function Projects() {
+  const projects = useProjects();
+  const t = useT();
+
   return (
     <section id="projets" className="bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Réalisations"
-          title="Projets professionnels"
-          subtitle="Des missions concrètes pour des organisations et des institutions."
+          eyebrow={t.projects.eyebrow}
+          title={t.projects.title}
+          subtitle={t.projects.subtitle}
         />
 
         <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
@@ -75,7 +79,7 @@ export function Projects() {
                     className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-border bg-muted px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
                   >
                     <FaGithub className="h-4 w-4" />
-                    GitHub
+                    {t.common.github}
                   </a>
                   <a
                     href={project.demo}
@@ -84,7 +88,7 @@ export function Projects() {
                     className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
                   >
                     <Link2 className="h-4 w-4" />
-                    Démo
+                    {t.common.demo}
                   </a>
                 </div>
               </div>

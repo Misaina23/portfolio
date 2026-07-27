@@ -3,16 +3,18 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 import { skillCategories } from "@/lib/data";
+import { useT } from "@/lib/i18n";
 import { EASE } from "@/lib/motion";
 
 export function Skills() {
+  const t = useT();
   return (
     <section id="competences" className="bg-muted/40 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Expertise"
-          title="Compétences techniques"
-          subtitle="Un socle full stack couvrant le web, le mobile et la donnée."
+          eyebrow={t.skills.eyebrow}
+          title={t.skills.title}
+          subtitle={t.skills.subtitle}
         />
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">

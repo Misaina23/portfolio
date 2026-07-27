@@ -4,6 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import { profile } from "@/lib/data";
+import { useLanguage, useT } from "@/lib/i18n";
 import { EASE } from "@/lib/motion";
 
 const container: Variants = {
@@ -16,6 +17,10 @@ const item: Variants = {
 };
 
 export function Hero() {
+  const { locale } = useLanguage();
+  const t = useT();
+  const cvHref = locale === "fr" ? "/documents/sainacv.PDF" : "/documents/ResumeSaina.pdf";
+
   return (
     <section
       id="accueil"
@@ -34,7 +39,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
-            Disponible pour de nouveaux projets
+            {t.common.available}
           </motion.span>
 
           <motion.h1
@@ -50,14 +55,14 @@ export function Hero() {
             variants={item}
             className="mt-4 text-lg font-semibold text-primary sm:text-xl"
           >
-            {profile.title}
+            {t.hero.title}
           </motion.p>
 
           <motion.p
             variants={item}
             className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0"
           >
-            {profile.tagline}
+            {t.hero.subtitle}
           </motion.p>
 
           <motion.div
@@ -65,18 +70,18 @@ export function Hero() {
             className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start"
           >
             <a
-              href={profile.cv}
+              href={cvHref}
               download
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:opacity-90 sm:w-auto"
             >
               <Download className="h-4 w-4" />
-              Télécharger CV PDF
+              {t.common.downloadCv}
             </a>
             <a
               href="#projets"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-7 py-3 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:w-auto"
             >
-              Voir mes projets
+              {t.common.viewProjects}
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
@@ -84,7 +89,7 @@ export function Hero() {
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-7 py-3 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:w-auto"
             >
               <Mail className="h-4 w-4" />
-              Me contacter
+              {t.common.contactMe}
             </a>
           </motion.div>
         </motion.div>
@@ -109,7 +114,7 @@ export function Hero() {
               />
             </div>
             <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-card px-5 py-3 shadow-xl">
-              <p className="text-xs text-muted-foreground">Localisation</p>
+              <p className="text-xs text-muted-foreground">{t.common.location}</p>
               <p className="text-sm font-semibold text-foreground">{profile.location}</p>
             </div>
           </div>

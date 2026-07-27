@@ -33,7 +33,7 @@ export const profile = {
   phone: "+261 34 95 441 74",
   location: "Fianarantsoa, Madagascar",
   photo: "/images/Saina.png",
-  cv: "/documents/sainacv.PDF",
+  cv: "/documents/SainaCV.pdf",
   socials: {
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
@@ -148,6 +148,19 @@ export const education: Education[] = [
       "Conception d'interfaces pour applications humanitaires",
       "Intégration de workflows complexes",
       "Analyse et reporting de données",
+    ],
+  },
+  {
+    school: "UniAthena",
+    logo: "/images/logo-uniathena.PNG",
+    degree: "SQL Certificate",
+    field: "Base de données",
+    description: "Certification professionnelle en SQL et conception de bases de données relationnelles.",
+    skills: [
+      "Requêtes SQL et optimisation",
+      "Conception de bases de données relationnelles",
+      "Modélisation de données",
+      "Administration de bases de données",
     ],
   },
 ];

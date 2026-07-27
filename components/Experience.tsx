@@ -3,17 +3,21 @@
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { experiences, techIcon } from "@/lib/data";
+import { useExperiences, useT } from "@/lib/i18n";
+import { techIcon } from "@/lib/data";
 import { EASE } from "@/lib/motion";
 
 export function Experience() {
+  const experiences = useExperiences();
+  const t = useT();
+
   return (
     <section id="experience" className="bg-muted/40 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Parcours"
-          title="Expérience professionnelle"
-          subtitle="Mes stages et prestations, du secteur public à l'humanitaire."
+          eyebrow={t.experience.eyebrow}
+          title={t.experience.title}
+          subtitle={t.experience.subtitle}
         />
 
         <div className="relative mx-auto max-w-3xl">
@@ -25,7 +29,7 @@ export function Experience() {
               const left = i % 2 === 0;
               return (
                 <motion.div
-                  key={exp.company}
+                  key={exp.company + exp.period}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}

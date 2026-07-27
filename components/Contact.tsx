@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, MapPin, Phone, Send, CheckCircle2 } from "lucide-react";
 import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 import { SectionHeading } from "./SectionHeading";
 import { profile } from "@/lib/data";
+import { useT } from "@/lib/i18n";
 import { EASE } from "@/lib/motion";
 
 type Errors = Partial<Record<"name" | "email" | "subject" | "message", string>>;
@@ -13,9 +15,18 @@ type Errors = Partial<Record<"name" | "email" | "subject" | "message", string>>;
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function Contact() {
+  const t = useT();
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState<Errors>({});
+  const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+
+  useEffect(() => {
+    if (sent) {
+      const timer = setTimeout(() => setSent(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [sent]);
 
   const update = (key: keyof typeof form, value: string) => {
     setForm((f) => ({ ...f, [key]: value }));
@@ -24,37 +35,60 @@ export function Contact() {
 
   const validate = (): boolean => {
     const next: Errors = {};
-    if (!form.name.trim()) next.name = "Veuillez indiquer votre nom.";
-    if (!form.email.trim()) next.email = "Veuillez indiquer votre email.";
-    else if (!emailRe.test(form.email)) next.email = "Email invalide.";
-    if (!form.subject.trim()) next.subject = "Veuillez indiquer un sujet.";
-    if (!form.message.trim()) next.message = "Veuillez écrire un message.";
-    else if (form.message.trim().length < 10) next.message = "Message trop court (10 caractères min).";
+    if (!form.name.trim()) next.name = t.contact.validationError;
+    if (!form.email.trim()) next.email = t.contact.validationError;
+    else if (!emailRe.test(form.email)) next.email = t.contact.validationError;
+    if (!form.subject.trim()) next.subject = t.contact.validationError;
+    if (!form.message.trim()) next.message = t.contact.validationError;
+    else if (form.message.trim().length < 10) next.message = t.contact.validationError;
     setErrors(next);
     return Object.keys(next).length === 0;
   };
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    setSent(true);
-    setForm({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setSent(false), 5000);
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Error");
+      await Swal.fire({
+        title: t.contact.success,
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      setForm({ name: "", email: "", subject: "", message: "" });
+      setErrors({});
+    } catch {
+      await Swal.fire({
+        title: t.contact.error,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    } finally {
+      setSending(false);
+      setSent(true);
+    }
   };
 
   const fields: { key: keyof typeof form; label: string; type: string; placeholder: string }[] = [
-    { key: "name", label: "Nom complet", type: "text", placeholder: "Votre nom" },
-    { key: "email", label: "Email", type: "email", placeholder: "vous@exemple.com" },
-    { key: "subject", label: "Sujet", type: "text", placeholder: "Sujet de votre message" },
+    { key: "name", label: t.contact.name, type: "text", placeholder: t.contact.namePlaceholder },
+    { key: "email", label: t.contact.email, type: "email", placeholder: t.contact.emailPlaceholder },
+    { key: "subject", label: t.contact.subject, type: "text", placeholder: t.contact.subjectPlaceholder },
   ];
 
   return (
     <section id="contact" className="bg-muted/40 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Contact"
-          title="Travaillons ensemble"
-          subtitle="Une idée, un projet ou une question ? Écrivez-moi, je réponds rapidement."
+          eyebrow={t.contact.eyebrow}
+          title={t.contact.title}
+          subtitle={t.contact.subtitle}
         />
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-5">
@@ -66,9 +100,9 @@ export function Contact() {
             className="lg:col-span-2 space-y-5"
           >
             {[
-              { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
-              { icon: Phone, label: "Téléphone", value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
-              { icon: MapPin, label: "Localisation", value: profile.location },
+              { icon: Mail, label: t.common.email, value: profile.email, href: `mailto:${profile.email}` },
+              { icon: Phone, label: t.common.phone, value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
+              { icon: MapPin, label: t.common.location, value: profile.location },
             ].map((c) => (
               <a
                 key={c.label}
@@ -86,7 +120,7 @@ export function Contact() {
             ))}
 
             <div className="rounded-2xl border border-border bg-card p-5">
-              <p className="text-sm font-semibold text-foreground">Réseaux sociaux</p>
+              <p className="text-sm font-semibold text-foreground">{t.common.followMe}</p>
               <div className="mt-3 flex gap-3">
                 <a
                   href={profile.socials.linkedin}
@@ -146,12 +180,12 @@ export function Contact() {
               </div>
 
               <div className="mt-5">
-                <label className="mb-2 block text-sm font-medium text-foreground">Sujet</label>
+                <label className="mb-2 block text-sm font-medium text-foreground">{t.contact.subject}</label>
                 <input
                   type="text"
                   value={form.subject}
                   onChange={(e) => update("subject", e.target.value)}
-                  placeholder="Sujet de votre message"
+                  placeholder={t.contact.subjectPlaceholder}
                   className={`w-full rounded-xl border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/30 ${
                     errors.subject ? "border-red-500" : "border-border"
                   }`}
@@ -160,12 +194,12 @@ export function Contact() {
               </div>
 
               <div className="mt-5">
-                <label className="mb-2 block text-sm font-medium text-foreground">Message</label>
+                <label className="mb-2 block text-sm font-medium text-foreground">{t.contact.message}</label>
                 <textarea
                   rows={5}
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
-                  placeholder="Décrivez votre projet ou votre demande..."
+                  placeholder={t.contact.messagePlaceholder}
                   className={`w-full resize-none rounded-xl border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/30 ${
                     errors.message ? "border-red-500" : "border-border"
                   }`}
@@ -175,20 +209,21 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:opacity-90 sm:w-auto"
+                disabled={sending}
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:opacity-90 disabled:opacity-70 sm:w-auto"
               >
                 <Send className="h-4 w-4" />
-                Envoyer le message
+                {sending ? t.common.sending : t.contact.sendMessage}
               </button>
 
-              {sent && (
+              {sent && !sending && (
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mt-4 inline-flex items-center gap-2 rounded-xl bg-emerald-500/10 px-4 py-3 text-sm font-medium text-emerald-600 dark:text-emerald-400"
                 >
                   <CheckCircle2 className="h-4 w-4" />
-                  Merci ! Votre message a bien été envoyé.
+                  {t.contact.success}
                 </motion.p>
               )}
             </form>

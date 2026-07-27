@@ -5,14 +5,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link2, Sparkles } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import { SectionHeading } from "./SectionHeading";
-import { academicProjects, techIcon } from "@/lib/data";
+import { useAcademicProjects, useT } from "@/lib/i18n";
+import { techIcon } from "@/lib/data";
 import { EASE } from "@/lib/motion";
 
-const filters = ["Tous", "Web", "Mobile", "Full Stack", "Data Management"] as const;
-type Filter = (typeof filters)[number];
+const filters = [
+  { key: "Tous", fr: "Tous", en: "All" },
+  { key: "Web", fr: "Web", en: "Web" },
+  { key: "Mobile", fr: "Mobile", en: "Mobile" },
+  { key: "Full Stack", fr: "Full Stack", en: "Full Stack" },
+  { key: "Data Management", fr: "Data", en: "Data" },
+] as const;
+type Filter = (typeof filters)[number]["key"];
 
 export function AcademicProjects() {
   const [filter, setFilter] = useState<Filter>("Tous");
+  const academicProjects = useAcademicProjects();
+  const t = useT();
 
   const featured = academicProjects.find((p) => p.featured);
   const others = academicProjects.filter((p) => !p.featured);
@@ -25,24 +34,24 @@ export function AcademicProjects() {
     <section id="academique" className="bg-muted/40 py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Académique & Personnel"
-          title="Projets académiques et personnels"
-          subtitle="Mes réalisations techniques, de l'application mobile au système complet."
+          eyebrow={t.academicProjects.eyebrow}
+          title={t.academicProjects.title}
+          subtitle={t.academicProjects.subtitle}
         />
 
         <div className="mb-10 flex flex-wrap justify-center gap-2">
           {filters.map((f) => (
             <button
-              key={f}
+              key={f.key}
               type="button"
-              onClick={() => setFilter(f)}
+              onClick={() => setFilter(f.key)}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                filter === f
+                filter === f.key
                   ? "bg-primary text-primary-foreground"
                   : "border border-border bg-card text-muted-foreground hover:text-primary"
               }`}
             >
-              {f}
+              {t.common.all === "All" ? f.en : f.fr}
             </button>
           ))}
         </div>
@@ -63,7 +72,7 @@ export function AcademicProjects() {
             </div>
             <div className="flex flex-col p-7 lg:col-span-3">
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                <Sparkles className="h-3.5 w-3.5" /> Projet phare
+                <Sparkles className="h-3.5 w-3.5" /> {t.academicProjects.featured}
               </span>
               <h3 className="mt-3 text-2xl font-bold text-foreground">{featured.title}</h3>
               <p className="text-sm font-medium text-primary">{featured.context}</p>
@@ -72,15 +81,15 @@ export function AcademicProjects() {
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
-                {featured.technologies.map((t) => {
-                  const Tech = techIcon[t] ?? Link2;
+                {featured.technologies.map((t2) => {
+                  const Tech = techIcon[t2] ?? Link2;
                   return (
                     <span
-                      key={t}
+                      key={t2}
                       className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-2.5 py-1 text-xs font-medium text-foreground"
                     >
                       <Tech className="h-3.5 w-3.5 text-primary" />
-                      {t}
+                      {t2}
                     </span>
                   );
                 })}
@@ -88,7 +97,7 @@ export function AcademicProjects() {
 
               <div className="mt-5">
                 <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Fonctionnalités principales
+                  {t.common.features}
                 </p>
                 <ul className="mt-2 grid grid-cols-1 gap-1.5 sm:grid-cols-2">
                   {featured.features.map((feat) => (
@@ -107,7 +116,7 @@ export function AcademicProjects() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-muted px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
                 >
-                  <FaGithub className="h-4 w-4" /> GitHub
+                  <FaGithub className="h-4 w-4" /> {t.common.github}
                 </a>
                 <a
                   href={featured.demo}
@@ -115,7 +124,7 @@ export function AcademicProjects() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
                 >
-                  <Link2 className="h-4 w-4" /> Démo
+                  <Link2 className="h-4 w-4" /> {t.common.demo}
                 </a>
               </div>
             </div>
@@ -151,15 +160,15 @@ export function AcademicProjects() {
                   </p>
 
                   <div className="mt-4 flex flex-wrap gap-2">
-                    {project.technologies.map((t) => {
-                      const Tech = techIcon[t] ?? Link2;
+                    {project.technologies.map((t2) => {
+                      const Tech = techIcon[t2] ?? Link2;
                       return (
                         <span
-                          key={t}
+                          key={t2}
                           className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-2.5 py-1 text-xs font-medium text-foreground"
                         >
                           <Tech className="h-3.5 w-3.5 text-primary" />
-                          {t}
+                          {t2}
                         </span>
                       );
                     })}
@@ -167,7 +176,7 @@ export function AcademicProjects() {
 
                   <div className="mt-4">
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                      Fonctionnalités
+                      {t.common.features}
                     </p>
                     <ul className="mt-2 space-y-1">
                       {project.features.slice(0, 4).map((feat) => (
@@ -186,7 +195,7 @@ export function AcademicProjects() {
                       rel="noopener noreferrer"
                       className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-border bg-muted px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
                     >
-                      <FaGithub className="h-4 w-4" /> GitHub
+                      <FaGithub className="h-4 w-4" /> {t.common.github}
                     </a>
                     <a
                       href={project.demo}
@@ -194,7 +203,7 @@ export function AcademicProjects() {
                       rel="noopener noreferrer"
                       className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
                     >
-                      <Link2 className="h-4 w-4" /> Démo
+                      <Link2 className="h-4 w-4" /> {t.common.demo}
                     </a>
                   </div>
                 </div>
@@ -205,7 +214,7 @@ export function AcademicProjects() {
 
         {list.length === 0 && (
           <p className="mt-10 text-center text-muted-foreground">
-            Aucun projet dans cette catégorie pour le moment.
+            {t.academicProjects.noResults}
           </p>
         )}
       </div>

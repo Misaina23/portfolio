@@ -3,7 +3,7 @@
 import { Code2, Database, Rocket } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
-import { about } from "@/lib/data";
+import { useAbout, useT } from "@/lib/i18n";
 
 const icons = {
   code: Code2,
@@ -12,13 +12,16 @@ const icons = {
 };
 
 export function About() {
+  const about = useAbout();
+  const t = useT();
+
   return (
     <section id="apropos" className="bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="À propos"
-          title="Qui je suis"
-          subtitle="Un développeur junior passionné, curieux et orienté résultats, prêt à relever vos défis techniques."
+          eyebrow={t.about.eyebrow}
+          title={t.about.title}
+          subtitle={t.about.subtitle}
         />
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
@@ -44,7 +47,7 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.1} className="space-y-5">
-            {about.highlights.map((h) => {
+            {(about.highlights as typeof about.highlights).map((h) => {
               const Icon = icons[h.icon as keyof typeof icons];
               return (
                 <div
