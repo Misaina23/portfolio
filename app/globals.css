@@ -4,30 +4,30 @@
 
 :root {
   --background: #f8fafc;
-  --foreground: #0f172a;
+  --foreground: #18202f;
   --card: #ffffff;
-  --card-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --border: #e2e8f0;
-  --primary: #4f46e5;
-  --primary-foreground: #ffffff;
-  --accent: #eef2ff;
-  --ring: #4f46e5;
+  --card-foreground: #18202f;
+  --muted: #f1f4f8;
+  --muted-foreground: #5e6d82;
+  --border: #e2e7ef;
+  --primary: #f59e0b;
+  --primary-foreground: #0f172a;
+  --accent: #fef3c7;
+  --ring: #f59e0b;
 }
 
 .dark {
-  --background: #070b16;
-  --foreground: #e2e8f0;
-  --card: #0f172a;
-  --card-foreground: #e2e8f0;
-  --muted: #1e293b;
+  --background: #11141b;
+  --foreground: #e6edf7;
+  --card: #181d27;
+  --card-foreground: #ffffff;
+  --muted: #202735;
   --muted-foreground: #94a3b8;
-  --border: #1e293b;
-  --primary: #818cf8;
-  --primary-foreground: #0b1020;
-  --accent: #1e1b4b;
-  --ring: #818cf8;
+  --border: #262e3f;
+  --primary: #ffb400;
+  --primary-foreground: #0d121c;
+  --accent: #2e2612;
+  --ring: #ffb400;
 }
 
 @theme inline {
@@ -42,8 +42,8 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-accent: var(--accent);
   --color-ring: var(--ring);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-poppins);
 }
 
 * {
@@ -57,7 +57,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -65,77 +65,49 @@ section {
   scroll-margin-top: 5rem;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in oklab, var(--primary) 50%, transparent);
+  background: color-mix(in oklab, var(--primary) 40%, transparent);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary), #06b6d4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+/* Clean Sliim accent highlights */
+.sliim-accent {
+  color: var(--primary);
 }
 
-@keyframes binaryFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-2.5%); }
-}
-.binary-rain {
-  animation: binaryFloat 24s ease-in-out infinite;
+.sliim-title-border {
+  position: relative;
+  display: inline-block;
 }
 
-@keyframes blobA {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(36px, -42px) scale(1.12); }
-}
-@keyframes blobB {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-44px, 30px) scale(0.92); }
-}
-@keyframes blobC {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(24px, 44px) scale(1.08); }
-}
-.aurora-a { animation: blobA 18s ease-in-out infinite; }
-.aurora-b { animation: blobB 22s ease-in-out infinite; }
-.aurora-c { animation: blobC 26s ease-in-out infinite; }
-
-.bg-grid {
-  background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--foreground) 6%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 6%, transparent) 1px, transparent 1px);
-  background-size: 48px 48px;
+.sliim-title-border::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 48px;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 2px;
 }
 
-.dark .bg-grid {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-}
-
-@keyframes blob {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -40px) scale(1.1); }
-  66% { transform: translate(-20px, 30px) scale(0.95); }
-}
-.animate-blob {
-  animation: blob 18s ease-in-out infinite;
+.sliim-title-border-center::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -61,6 +61,7 @@ export function Contact() {
         title: t.contact.success,
         icon: "success",
         confirmButtonText: "OK",
+        confirmButtonColor: "#ffb400",
       });
       setForm({ name: "", email: "", subject: "", message: "" });
       setErrors({});
@@ -69,6 +70,7 @@ export function Contact() {
         title: t.contact.error,
         icon: "error",
         confirmButtonText: "OK",
+        confirmButtonColor: "#ffb400",
       });
     } finally {
       setSending(false);
@@ -83,7 +85,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="bg-muted/40 py-20 md:py-28">
+    <section id="contact" className="bg-muted/30 py-20 md:py-28 border-t border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow={t.contact.eyebrow}
@@ -91,126 +93,142 @@ export function Contact() {
           subtitle={t.contact.subtitle}
         />
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+          {/* Left Column: Direct info cards */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="lg:col-span-2 space-y-5"
+            transition={{ duration: 0.5, ease: EASE }}
+            className="lg:col-span-5 space-y-4"
           >
-            {[
-              { icon: Mail, label: t.common.email, value: profile.email, href: `mailto:${profile.email}` },
-              { icon: Phone, label: t.common.phone, value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
-              { icon: MapPin, label: t.common.location, value: profile.location },
-            ].map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg"
-              >
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-transform group-hover:scale-105">
-                  <c.icon className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">{c.label}</p>
-                  <p className="font-semibold text-foreground">{c.value}</p>
-                </div>
-              </a>
-            ))}
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+              <h3 className="text-base font-bold uppercase tracking-tight text-foreground font-display pb-3 border-b border-border">
+                {t.contact.infoTitle}
+              </h3>
+              
+              <div className="mt-5 space-y-4">
+                {[
+                  { icon: Mail, label: t.common.email, value: profile.email, href: `mailto:${profile.email}` },
+                  { icon: Phone, label: t.common.phone, value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
+                  { icon: MapPin, label: t.common.location, value: profile.location },
+                ].map((c) => (
+                  <a
+                    key={c.label}
+                    href={c.href}
+                    className="flex items-center gap-4 rounded-xl border border-border/60 bg-muted/40 p-3.5 transition-all hover:border-primary/50 hover:bg-muted"
+                  >
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold shadow-xs">
+                      <c.icon className="h-4 w-4" />
+                    </div>
+                    <div className="overflow-hidden">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">{c.label}</p>
+                      <p className="text-xs sm:text-sm font-semibold text-foreground truncate">{c.value}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
 
-            <div className="rounded-2xl border border-border bg-card p-5">
-              <p className="text-sm font-semibold text-foreground">{t.common.followMe}</p>
-              <div className="mt-3 flex gap-3">
-                <a
-                  href={profile.socials.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="grid h-11 w-11 place-items-center rounded-xl bg-[#0a66c2] text-white transition-transform hover:-translate-y-1"
-                >
-                  <FaLinkedin className="h-5 w-5" />
-                </a>
-                <a
-                  href={profile.socials.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="grid h-11 w-11 place-items-center rounded-xl bg-foreground text-background transition-transform hover:-translate-y-1"
-                >
-                  <FaGithub className="h-5 w-5" />
-                </a>
-                <a
-                  href={profile.socials.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter"
-                  className="grid h-11 w-11 place-items-center rounded-xl bg-[#1d9bf0] text-white transition-transform hover:-translate-y-1"
-                >
-                  <FaXTwitter className="h-5 w-5" />
-                </a>
+              <div className="mt-6 pt-5 border-t border-border">
+                <p className="text-xs font-bold uppercase tracking-wider text-foreground font-display">{t.common.followMe}</p>
+                <div className="mt-3 flex gap-2.5">
+                  <a
+                    href={profile.socials.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-muted/40 text-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5"
+                  >
+                    <FaLinkedin className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={profile.socials.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-muted/40 text-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5"
+                  >
+                    <FaGithub className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={profile.socials.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Twitter"
+                    className="grid h-10 w-10 place-items-center rounded-lg border border-border bg-muted/40 text-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5"
+                  >
+                    <FaXTwitter className="h-4 w-4" />
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
 
+          {/* Right Column: Contact form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="lg:col-span-3"
+            transition={{ duration: 0.5, ease: EASE }}
+            className="lg:col-span-7"
           >
-            <form onSubmit={onSubmit} noValidate className="rounded-3xl border border-border bg-card p-7 shadow-sm sm:p-9">
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <form onSubmit={onSubmit} noValidate className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {fields.slice(0, 2).map((f) => (
                   <div key={f.key}>
-                    <label className="mb-2 block text-sm font-medium text-foreground">{f.label}</label>
+                    <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-foreground font-display">
+                      {f.label}
+                    </label>
                     <input
                       type={f.type}
                       value={form[f.key]}
                       onChange={(e) => update(f.key, e.target.value)}
                       placeholder={f.placeholder}
-                      className={`w-full rounded-xl border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/30 ${
+                      className={`w-full rounded-lg border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary ${
                         errors[f.key] ? "border-red-500" : "border-border"
                       }`}
                     />
-                    {errors[f.key] && <p className="mt-1.5 text-xs text-red-500">{errors[f.key]}</p>}
+                    {errors[f.key] && <p className="mt-1 text-xs text-red-500">{errors[f.key]}</p>}
                   </div>
                 ))}
               </div>
 
-              <div className="mt-5">
-                <label className="mb-2 block text-sm font-medium text-foreground">{t.contact.subject}</label>
+              <div className="mt-4">
+                <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-foreground font-display">
+                  {t.contact.subject}
+                </label>
                 <input
                   type="text"
                   value={form.subject}
                   onChange={(e) => update("subject", e.target.value)}
                   placeholder={t.contact.subjectPlaceholder}
-                  className={`w-full rounded-xl border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/30 ${
+                  className={`w-full rounded-lg border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary ${
                     errors.subject ? "border-red-500" : "border-border"
                   }`}
                 />
-                {errors.subject && <p className="mt-1.5 text-xs text-red-500">{errors.subject}</p>}
+                {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject}</p>}
               </div>
 
-              <div className="mt-5">
-                <label className="mb-2 block text-sm font-medium text-foreground">{t.contact.message}</label>
+              <div className="mt-4">
+                <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-foreground font-display">
+                  {t.contact.message}
+                </label>
                 <textarea
                   rows={5}
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
                   placeholder={t.contact.messagePlaceholder}
-                  className={`w-full resize-none rounded-xl border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/30 ${
+                  className={`w-full resize-none rounded-lg border bg-background px-3.5 py-2.5 text-xs sm:text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary ${
                     errors.message ? "border-red-500" : "border-border"
                   }`}
                 />
-                {errors.message && <p className="mt-1.5 text-xs text-red-500">{errors.message}</p>}
+                {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
               </div>
 
               <button
                 type="submit"
                 disabled={sending}
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:opacity-90 disabled:opacity-70 sm:w-auto"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow transition-transform hover:-translate-y-0.5 hover:opacity-95 disabled:opacity-70 sm:w-auto font-display"
               >
                 <Send className="h-4 w-4" />
                 {sending ? t.common.sending : t.contact.sendMessage}
@@ -220,7 +238,7 @@ export function Contact() {
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-emerald-500/10 px-4 py-3 text-sm font-medium text-emerald-600 dark:text-emerald-400"
+                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-emerald-500/10 px-4 py-2.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400"
                 >
                   <CheckCircle2 className="h-4 w-4" />
                   {t.contact.success}

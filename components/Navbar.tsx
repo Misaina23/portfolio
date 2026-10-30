@@ -39,70 +39,83 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-lg"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-border bg-background/95 backdrop-blur-md shadow-xs py-2.5"
+          : "border-b border-transparent bg-transparent py-4"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#accueil" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-sm font-bold text-primary-foreground">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Sliim-style Brand Logo */}
+        <a href="#accueil" className="flex items-center gap-2.5">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-xs font-black uppercase text-primary-foreground font-display">
             {profile.firstName[0]}
             {profile.lastName[0]}
           </span>
-          <span className="text-lg font-bold tracking-tight text-foreground">
+          <span className="text-lg font-extrabold uppercase tracking-tight text-foreground font-display">
             Dev<span className="text-primary">Misaina</span>
           </span>
         </a>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        {/* Center Nav Links */}
+        <div className="hidden items-center gap-1 xl:gap-2 lg:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className="rounded-md px-2.5 py-1.5 text-xs font-bold uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary font-display"
             >
               {t.nav[link.key as keyof typeof t.nav]}
             </a>
           ))}
         </div>
 
+        {/* Right Nav Utilities */}
         <div className="flex items-center gap-2">
-          <div className="hidden items-center gap-1 rounded-full border border-border bg-card p-1 sm:flex">
+          {/* Language Switcher */}
+          <div className="hidden items-center gap-1 rounded-lg border border-border bg-card p-1 sm:flex">
             <button
               type="button"
               onClick={() => switchTo("fr")}
-              className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+              className={`rounded-md px-2 py-0.5 text-xs font-bold font-display uppercase tracking-wider transition-colors ${
                 locale === "fr" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
               }`}
-              aria-label="Français"
             >
-              🇫🇷 FR
+              FR
             </button>
             <button
               type="button"
               onClick={() => switchTo("en")}
-              className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+              className={`rounded-md px-2 py-0.5 text-xs font-bold font-display uppercase tracking-wider transition-colors ${
                 locale === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
               }`}
-              aria-label="English"
             >
-              🇬🇧 EN
+              EN
             </button>
           </div>
+
           <ThemeToggle />
+
+          <a
+            href="#contact"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-xs transition-transform hover:-translate-y-0.5 font-display"
+          >
+            {t.common.contactMe}
+          </a>
+
+          {/* Mobile hamburger */}
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Ouvrir le menu"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground lg:hidden"
+            aria-label="Menu"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground lg:hidden"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
       </nav>
 
+      {/* Mobile Drawer */}
       <div
-        className={`overflow-hidden border-t border-border bg-background/95 backdrop-blur-lg transition-[max-height] duration-300 lg:hidden ${
+        className={`overflow-hidden border-t border-border bg-background/95 backdrop-blur-md transition-[max-height] duration-300 lg:hidden ${
           open ? "max-h-96" : "max-h-0 border-t-0"
         }`}
       >
@@ -112,29 +125,29 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+              className="block rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wider text-muted-foreground transition-colors hover:bg-muted hover:text-primary font-display"
             >
               {t.nav[link.key as keyof typeof t.nav]}
             </a>
           ))}
-          <div className="flex items-center gap-2 pt-2">
+          <div className="flex items-center gap-2 pt-2 border-t border-border">
             <button
               type="button"
               onClick={() => switchTo("fr")}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+              className={`rounded-md px-3 py-1 text-xs font-bold font-display uppercase tracking-wider ${
                 locale === "fr" ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"
               }`}
             >
-              🇫🇷 FR
+              FR
             </button>
             <button
               type="button"
               onClick={() => switchTo("en")}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+              className={`rounded-md px-3 py-1 text-xs font-bold font-display uppercase tracking-wider ${
                 locale === "en" ? "bg-primary text-primary-foreground" : "border border-border text-muted-foreground"
               }`}
             >
-              🇬🇧 EN
+              EN
             </button>
           </div>
         </div>
