@@ -1,6 +1,7 @@
 "use client";
 
-import { Code2, Database, Rocket, Download, Mail, User } from "lucide-react";
+import Image from "next/image";
+import { Code2, Database, Rocket, Download, Mail } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { profile } from "@/lib/data";
@@ -51,10 +52,15 @@ export function About() {
           <div className="lg:col-span-7 space-y-8">
             <Reveal>
               <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
-                <div className="flex items-center gap-3 pb-5 border-b border-border">
-                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-primary/10 text-primary">
-                    <User className="h-5 w-5" />
-                  </div>
+                <div className="flex items-center gap-3.5 pb-5 border-b border-border">
+                  <Image
+                    src={profile.photo}
+                    alt={profile.fullName}
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 rounded-xl object-cover object-top border border-border shadow-xs flex-shrink-0"
+                    referrerPolicy="no-referrer"
+                  />
                   <div>
                     <h3 className="text-lg font-bold uppercase tracking-tight text-foreground font-display">
                       {locale === "fr" ? "Informations Personnelles" : "Personal Information"}

@@ -32,7 +32,7 @@ export const profile = {
   email: "andrianisaina23@gmail.com",
   phone: "+261 34 95 441 74",
   location: "Fianarantsoa, Madagascar",
-  photo: "/images/Saina.png",
+  photo: "/images/saina-real.jpg",
   cv: "/documents/sainacv.PDF",
   socials: {
     linkedin: "https://www.linkedin.com/",

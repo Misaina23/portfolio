@@ -135,30 +135,30 @@ export function Hero() {
                   </div>
                 </div>
 
-                {/* 15-second continuous coding video with NO pause/play/mute buttons */}
-                <div className="relative aspect-video w-full overflow-hidden bg-black">
+                {/* 15-second continuous developer video with Saina's real photo and NO pause/play buttons */}
+                <div className="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden bg-black">
                   <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    poster="/images/ai-developer-coding.jpg"
-                    className="h-full w-full object-cover object-center"
+                    poster="/images/saina-real.jpg"
+                    className="h-full w-full object-cover object-top"
                   >
-                    <source src="/videos/coding-ai-15s.mp4" type="video/mp4" />
+                    <source src="/videos/saina-real-15s.mp4" type="video/mp4" />
                   </video>
 
-                  {/* Subtle code overlay scrim */}
+                  {/* Subtle vignette gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
 
-                  {/* Active code typing subtitle badge in bottom overlay */}
+                  {/* Real Developer Badge in bottom overlay */}
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white pointer-events-none">
                     <div className="font-mono text-xs">
-                      <span className="text-emerald-400 font-bold">✓ live code</span>
-                      <span className="text-white/60 ml-2">Next.js • Laravel • PostgreSQL</span>
+                      <span className="text-primary font-bold">ANDRIANISAINA Nanga M.</span>
+                      <span className="text-white/80 ml-2 hidden sm:inline">Lead Dev & REKOMA</span>
                     </div>
-                    <span className="font-mono text-[11px] text-primary bg-primary/20 border border-primary/30 px-2 py-0.5 rounded">
-                      ready
+                    <span className="font-mono text-[11px] text-emerald-400 bg-emerald-500/20 border border-emerald-500/30 px-2 py-0.5 rounded backdrop-blur">
+                      ● en ligne
                     </span>
                   </div>
                 </div>
