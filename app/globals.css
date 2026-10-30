@@ -3,30 +3,30 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f8fafc;
-  --foreground: #18202f;
+  --background: #ffffff;
+  --foreground: #404854;
   --card: #ffffff;
-  --card-foreground: #18202f;
-  --muted: #f1f4f8;
-  --muted-foreground: #5e6d82;
-  --border: #e2e7ef;
+  --card-foreground: #404854;
+  --muted: #f7f8fa;
+  --muted-foreground: #6c757d;
+  --border: #e9ecef;
   --primary: #f59e0b;
-  --primary-foreground: #0f172a;
+  --primary-foreground: #ffffff;
   --accent: #fef3c7;
   --ring: #f59e0b;
 }
 
 .dark {
-  --background: #11141b;
-  --foreground: #e6edf7;
-  --card: #181d27;
+  --background: #222222;
+  --foreground: #e6e6e6;
+  --card: #2e2e2e;
   --card-foreground: #ffffff;
-  --muted: #202735;
-  --muted-foreground: #94a3b8;
-  --border: #262e3f;
+  --muted: #383838;
+  --muted-foreground: #a6a6a6;
+  --border: #444444;
   --primary: #ffb400;
-  --primary-foreground: #0d121c;
-  --accent: #2e2612;
+  --primary-foreground: #1c1c1c;
+  --accent: #383015;
   --ring: #ffb400;
 }
 
@@ -42,8 +42,10 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-accent: var(--accent);
   --color-ring: var(--ring);
-  --font-sans: var(--font-sans);
-  --font-display: var(--font-poppins);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-mono);
+  --font-display: var(--font-playfair);
+  --font-serif: var(--font-playfair);
 }
 
 * {
@@ -57,7 +59,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -66,7 +68,24 @@ section {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-poppins), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-playfair), Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Sliim Signature Dotted Decorative Matrix */
+.sliim-dotted-shape {
+  background-image: radial-gradient(var(--primary) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  opacity: 0.18;
+}
+
+/* Sliim Button Style */
+.sliim-btn {
+  font-family: var(--font-mono), monospace;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.25s ease-in-out;
 }
 
 /* Custom scrollbar */
@@ -74,40 +93,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in oklab, var(--primary) 40%, transparent);
-  border-radius: 9999px;
+  background: color-mix(in oklab, var(--primary) 50%, transparent);
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
-}
-
-/* Clean Sliim accent highlights */
-.sliim-accent {
-  color: var(--primary);
-}
-
-.sliim-title-border {
-  position: relative;
-  display: inline-block;
-}
-
-.sliim-title-border::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 48px;
-  height: 3px;
-  background-color: var(--primary);
-  border-radius: 2px;
-}
-
-.sliim-title-border-center::after {
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 @media (prefers-reduced-motion: reduce) {

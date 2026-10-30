@@ -253,7 +253,7 @@ export const projects: Project[] = [
       "Plateforme scolaire intégrée : inscription des élèves, gestion des classes, emploi du temps, saisie des notes et bulletins automatisés.",
     technologies: ["Vue.js", "Symfony", "MySQL"],
     github: "https://github.com/Misaina23/lycee-midongy",
-    demo: "https://lyccemidongy.vercel.app",
+    demo: "https://lycceemidongysud.vercel.app/",
   },
   {
     title: "Plateforme Agricole & Semences",
@@ -350,7 +350,7 @@ export const academicProjects: AcademicProject[] = [
     categories: ["Web"],
     icon: FaSchool,
     github: "https://github.com/Misaina23/lycee-midongy",
-    demo: "https://lyccemidongy.vercel.app",
+    demo: "https://lycceemidongysud.vercel.app/",
   },
   {
     title: "Gestion de Pointage Personnel",

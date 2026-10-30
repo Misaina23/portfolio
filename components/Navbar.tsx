@@ -52,12 +52,12 @@ export function Navbar() {
         </a>
 
         {/* Center Nav Links: 5 clean items */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-7">
           {desktopLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-xs font-bold uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary font-display whitespace-nowrap"
+              className="text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:text-primary font-mono whitespace-nowrap"
             >
               {t.nav[link.key as keyof typeof t.nav]}
             </a>
@@ -65,13 +65,13 @@ export function Navbar() {
         </div>
 
         {/* Right Nav Utilities */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           {/* Language Switcher */}
-          <div className="hidden items-center gap-1 rounded-lg border border-border bg-card p-1 sm:flex">
+          <div className="hidden items-center gap-1 border border-border bg-card p-1 sm:flex font-mono text-xs">
             <button
               type="button"
               onClick={() => switchTo("fr")}
-              className={`rounded-md px-2 py-0.5 text-xs font-bold font-display uppercase tracking-wider transition-colors ${
+              className={`px-2 py-0.5 text-xs font-bold tracking-wider transition-colors ${
                 locale === "fr" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -80,7 +80,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => switchTo("en")}
-              className={`rounded-md px-2 py-0.5 text-xs font-bold font-display uppercase tracking-wider transition-colors ${
+              className={`px-2 py-0.5 text-xs font-bold tracking-wider transition-colors ${
                 locale === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -92,7 +92,7 @@ export function Navbar() {
 
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-xs transition-transform hover:-translate-y-0.5 font-display"
+            className="sliim-btn hidden sm:inline-flex items-center gap-1.5 bg-primary px-5 py-2 text-xs text-primary-foreground shadow-xs"
           >
             {t.common.contactMe}
           </a>
@@ -102,7 +102,7 @@ export function Navbar() {
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label="Menu"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground lg:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center border border-border bg-card text-foreground lg:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>

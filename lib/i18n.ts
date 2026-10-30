@@ -196,7 +196,7 @@ export const projectsEn: ProjectEn[] = [
       "Integrated school platform: student enrollment, class management, scheduling, grade entry, and automated report cards.",
     technologies: ["Vue.js", "Symfony", "MySQL"],
     github: "https://github.com/Misaina23/lycee-midongy",
-    demo: "https://lyccemidongy.vercel.app",
+    demo: "https://lycceemidongysud.vercel.app/",
   },
   {
     title: "Agricultural Management Platform",
@@ -293,7 +293,7 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     categories: ["Web"],
     icon: FaSchool,
     github: "https://github.com/Misaina23/lycee-midongy",
-    demo: "https://lyccemidongy.vercel.app",
+    demo: "https://lycceemidongysud.vercel.app/",
   },
   {
     title: "Staff Time-Tracking Management",
