@@ -46,12 +46,12 @@ export function Navbar() {
         <a
           href="#accueil"
           className="flex items-center gap-3 whitespace-nowrap shrink-0 group"
-          aria-label="Saina Miaramanana - Accueil"
+          aria-label="DevMisaina - Accueil"
         >
           <div className="relative">
             <Image
               src="/images/saina-real.jpg"
-              alt={profile.fullName}
+              alt="DevMisaina"
               width={42}
               height={42}
               className="h-10 w-10 sm:h-11 sm:w-11 rounded-full object-cover object-top border-2 border-primary shadow-sm transition-transform duration-300 group-hover:scale-105"
@@ -64,8 +64,8 @@ export function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-sm sm:text-base font-bold tracking-tight text-foreground font-display leading-tight group-hover:text-primary transition-colors">
-              {profile.firstName} <span className="text-primary italic font-serif">{profile.lastName}</span>
+            <span className="text-base sm:text-lg font-bold tracking-tight text-foreground font-display leading-tight group-hover:text-primary transition-colors">
+              Dev<span className="text-primary italic font-serif">Misaina</span>
             </span>
             <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
               {profile.title}

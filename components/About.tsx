@@ -22,8 +22,8 @@ export function About() {
   const cvHref = locale === "fr" ? "/documents/sainacv.PDF" : "/documents/ResumeSaina.pdf";
 
   const personalInfo = [
-    { label: locale === "fr" ? "Prénom" : "First Name", value: profile.firstName },
-    { label: locale === "fr" ? "Nom" : "Last Name", value: profile.lastName },
+    { label: locale === "fr" ? "Identité" : "Identity", value: "DevMisaina" },
+    { label: locale === "fr" ? "Rôle" : "Role", value: locale === "fr" ? "Développeur Full Stack" : "Full Stack Developer" },
     { label: locale === "fr" ? "Nationalité" : "Nationality", value: "Malagasy" },
     { label: locale === "fr" ? "Diplôme" : "Degree", value: "BAC+3 Génie Logiciel (ENI)" },
     { label: locale === "fr" ? "Téléphone" : "Phone", value: profile.phone },

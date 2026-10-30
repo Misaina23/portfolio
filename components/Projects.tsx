@@ -263,7 +263,7 @@ export function Projects() {
 
                 <div className="mt-6 pt-4 border-t border-border/60">
                   <span className="text-[11px] text-primary font-bold">
-                    ✓ Développé par ANDRIANISAINA Nanga M.
+                    ✓ Conçu & développé par DevMisaina
                   </span>
                 </div>
               </div>

@@ -58,23 +58,23 @@ export function Hero() {
           <div className="mb-6 flex items-center gap-3 rounded-full border border-border/80 bg-card/60 px-4 py-1.5 backdrop-blur-md shadow-xs">
             <Image
               src="/images/saina-real.jpg"
-              alt={profile.fullName}
+              alt="DevMisaina"
               width={32}
               height={32}
               className="h-8 w-8 rounded-full object-cover object-top border border-primary/50"
               referrerPolicy="no-referrer"
             />
             <span className="text-xs font-mono font-medium text-foreground tracking-wider uppercase">
-              {profile.fullName}
+              DevMisaina
             </span>
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
           </div>
 
-          {/* Sliim Heading: hi ! i'm Saina. */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground font-display capitalize leading-[1.05]">
-            hi ! i’m{" "}
+          {/* Sliim Heading: strictly starting with 'I am DevMisaina' */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground font-display leading-[1.05]">
+            I am{" "}
             <span className="text-primary italic font-serif">
-              {profile.firstName}.
+              DevMisaina
             </span>
           </h1>
 

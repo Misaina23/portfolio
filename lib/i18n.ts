@@ -19,9 +19,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export { useLanguage };
 
 export const profileEn = {
-  firstName: "Nanga",
-  lastName: "ANDRIANISAINA",
-  fullName: "ANDRIANISAINA Nanga Miaramanana",
+  firstName: "DevMisaina",
+  lastName: "",
+  fullName: "DevMisaina",
+  displayName: "DevMisaina",
   title: "Full Stack Web & Mobile Developer",
   tagline:
     "I design high-performance web and mobile applications, from database to interface, turning ideas into real products.",

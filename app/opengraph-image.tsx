@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "ANDRIANISAINA Nanga Miaramanana — Développeur Full Stack";
+export const alt = "DevMisaina — Développeur Full Stack Web & Mobile";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,7 +15,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #070b16 0%, #0f172a 60%, #111827 100%)",
+          background: "linear-gradient(135deg, #181d27 0%, #11141b 100%)",
           color: "#e2e8f0",
           fontFamily: "sans-serif",
         }}
@@ -26,34 +26,23 @@ export default function OpengraphImage() {
               width: "64px",
               height: "64px",
               borderRadius: "16px",
-              background: "linear-gradient(135deg, #4f46e5, #06b6d4)",
+              background: "#ffb400",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "34px",
+              fontSize: "30px",
               fontWeight: 800,
-              color: "#ffffff",
+              color: "#181d27",
             }}
           >
-            M
+            DM
           </div>
-          <div style={{ fontSize: "26px", color: "#818cf8", fontWeight: 600 }}>DevMisaina</div>
+          <div style={{ fontSize: "28px", color: "#ffb400", fontWeight: 700 }}>DevMisaina</div>
         </div>
 
-        <div style={{ marginTop: "40px", fontSize: "64px", fontWeight: 800, lineHeight: 1.05 }}>
-          ANDRIANISAINA
-        </div>
-        <div
-          style={{
-            fontSize: "64px",
-            fontWeight: 800,
-            lineHeight: 1.05,
-            background: "linear-gradient(135deg, #818cf8, #22d3ee)",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          Nanga Miaramanana
+        <div style={{ marginTop: "40px", fontSize: "72px", fontWeight: 800, lineHeight: 1.05, display: "flex", gap: "16px" }}>
+          <span>I am</span>
+          <span style={{ color: "#ffb400" }}>DevMisaina</span>
         </div>
 
         <div style={{ marginTop: "32px", fontSize: "30px", color: "#94a3b8" }}>

@@ -28,7 +28,7 @@ export function Footer() {
             <div className="flex items-center gap-3.5 mb-3">
               <Image
                 src="/images/saina-real.jpg"
-                alt="Saina Miaramanana"
+                alt="DevMisaina"
                 width={48}
                 height={48}
                 className="h-12 w-12 rounded-full object-cover object-top border-2 border-primary shadow-sm"
@@ -36,7 +36,7 @@ export function Footer() {
               />
               <div>
                 <span className="text-base font-bold text-foreground font-display block leading-tight">
-                  ANDRIANISAINA <span className="text-primary italic font-serif">Nanga Miaramanana</span>
+                  Dev<span className="text-primary italic font-serif">Misaina</span>
                 </span>
                 <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider block">
                   Développeur Full Stack · Madagascar

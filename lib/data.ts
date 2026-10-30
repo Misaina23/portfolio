@@ -23,9 +23,10 @@ import { FaMobileScreen, FaSchool, FaBoxOpen, FaPlane, FaUtensils, FaBrain, FaSh
 import { PiPlantFill } from "react-icons/pi";
 
 export const profile = {
-  firstName: "Nanga",
-  lastName: "ANDRIANISAINA",
-  fullName: "ANDRIANISAINA Nanga Miaramanana",
+  firstName: "DevMisaina",
+  lastName: "",
+  fullName: "DevMisaina",
+  displayName: "DevMisaina",
   title: "Développeur Full Stack Web & Mobile",
   tagline:
     "Je conçois des applications web et mobiles performantes, de la base de données à l'interface, pour transformer vos idées en produits concrets.",
