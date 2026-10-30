@@ -33,7 +33,7 @@ export const profile = {
   phone: "+261 34 95 441 74",
   location: "Fianarantsoa, Madagascar",
   photo: "/images/Saina.png",
-  cv: "/documents/SainaCV.pdf",
+  cv: "/documents/sainacv.PDF",
   socials: {
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
@@ -169,56 +169,54 @@ export type Skill = { name: string; level: number; icon: IconType };
 export type SkillCategory = { name: string; icon: IconType; skills: Skill[] };
 
 export const skillCategories: SkillCategory[] = [
-   {
-     name: "Frontend",
-     icon: SiReact,
-     skills: [
-       { name: "Next.js", level: 90, icon: SiNextdotjs },
-       { name: "React", level: 90, icon: SiReact },
-       { name: "Vue.js", level: 85, icon: SiVuedotjs },
-       { name: "TypeScript", level: 88, icon: SiTypescript },
-       { name: "HTML / CSS", level: 95, icon: SiHtml5 },
-       { name: "JavaScript", level: 90, icon: SiJavascript },
-     ],
-   },
-   {
-     name: "Backend",
-     icon: SiLaravel,
-     skills: [
-       { name: "Laravel / PHP", level: 85, icon: SiLaravel },
-       { name: "ASP.NET Core / C#", level: 78, icon: SiDotnet },
-       { name: "Django / Python", level: 80, icon: SiDjango },
-       { name: "API REST", level: 88, icon: SiApache },
-       { name: "Authentification JWT", level: 85, icon: FaShield },
-       { name: "Gestion des bases de données", level: 90, icon: SiMysql },
-       { name: "Architecture backend", level: 85, icon: FaServer },
-     ],
-   },
+  {
+    name: "Frontend",
+    icon: SiReact,
+    skills: [
+      { name: "React", level: 80, icon: SiReact },
+      { name: "Next.js", level: 78, icon: SiNextdotjs },
+      { name: "JavaScript", level: 76, icon: SiJavascript },
+      { name: "Vue.js", level: 74, icon: SiVuedotjs },
+      { name: "TypeScript", level: 72, icon: SiTypescript },
+      { name: "HTML / CSS", level: 82, icon: SiHtml5 },
+    ],
+  },
+  {
+    name: "Backend Frameworks",
+    icon: SiLaravel,
+    skills: [
+      { name: "Laravel", level: 75, icon: SiLaravel },
+      { name: "Django", level: 70, icon: SiDjango },
+      { name: "ASP.NET Core", level: 65, icon: SiDotnet },
+      { name: "Symfony", level: 62, icon: SiSymfony },
+    ],
+  },
   {
     name: "Mobile",
     icon: FaMobileScreen,
     skills: [
-      { name: "Flutter", level: 80, icon: SiFlutter },
-      { name: "React Native", level: 82, icon: SiReact },
+      { name: "React Native", level: 70, icon: SiReact },
+      { name: "Flutter", level: 68, icon: SiFlutter },
     ],
   },
-   {
-     name: "Base de données",
-     icon: SiMysql,
-     skills: [
-       { name: "MySQL", level: 90, icon: SiMysql },
-       { name: "MongoDB", level: 78, icon: SiMongodb },
-       { name: "PostgreSQL", level: 82, icon: SiPostgresql },
-     ],
-   },
-   {
-     name: "Langages",
-     icon: SiJavascript,
-     skills: [
-       { name: "Prolog", level: 75, icon: FaBrain },
-     ],
-   },
- ];
+  {
+    name: "Base de données",
+    icon: SiMysql,
+    skills: [
+      { name: "MySQL", level: 75, icon: SiMysql },
+      { name: "PostgreSQL", level: 70, icon: SiPostgresql },
+      { name: "MongoDB", level: 64, icon: SiMongodb },
+    ],
+  },
+  {
+    name: "Langages & IA",
+    icon: FaBrain,
+    skills: [
+      { name: "PHP", level: 75, icon: SiPhp },
+      { name: "Prolog", level: 60, icon: FaBrain },
+    ],
+  },
+];
 
 export type Project = {
   title: string;
@@ -231,58 +229,58 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Plateforme Association REKOMA",
+    client: "Association REKOMA",
+    description:
+      "Portail associatif complet comprenant la gestion des membres, un site public vitrine, une boutique en ligne pour la vente d'accessoires solidaires, et un espace de pilotage des projets associatifs.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+    github: "https://github.com/Misaina23/rekoma",
+    demo: "https://rekoma-318.vercel.app",
+  },
+  {
     title: "Gestion de Pointage Personnel",
-    client: "Ministère de l'Enseignement Supérieur & Recherche Scientifique",
+    client: "Ministère de l'Enseignement Supérieur",
     description:
-      "Système de gestion de pointage du personnel avec suivi des présences, interface administrateur et rapports automatisés.",
+      "Système de gestion et suivi des présences du personnel avec tableaux de bord, interface administrateur et génération automatique de fiches de pointage.",
     technologies: ["Vue.js", "Laravel", "MySQL"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23/pointage",
+    demo: "https://pointagemisaina.vercel.app",
   },
   {
-    title: "Gestion Distribution Semences",
-    client: "Projet agricole",
+    title: "Gestion de Lycée",
+    client: "Lycée Midongy",
     description:
-      "Application de gestion et de suivi de la distribution de semences agricoles avec tableaux de bord.",
-    technologies: ["Vue.js", "Django", "MySQL"],
-    github: "#",
-    demo: "#",
+      "Plateforme scolaire intégrée : inscription des élèves, gestion des classes, emploi du temps, saisie des notes et bulletins automatisés.",
+    technologies: ["Vue.js", "Symfony", "MySQL"],
+    github: "https://github.com/Misaina23/lycee-midongy",
+    demo: "https://lyccemidongy.vercel.app",
   },
   {
-    title: "Gestion de Restauration",
-    client: "Établissements de restauration",
+    title: "Plateforme Agricole & Semences",
+    client: "Coopérative agricole",
     description:
-      "Système complet de gestion pour établissements de restauration : commandes, stocks et suivi d'activité.",
-    technologies: ["JSP", "MySQL"],
-    github: "#",
-    demo: "#",
+      "Application de gestion et suivi de distribution de semences, inventaire des stocks et traçabilité des parcelles agricoles avec cartographie.",
+    technologies: ["Next.js", "Django", "PostgreSQL"],
+    github: "https://github.com/Misaina23/videeko",
+    demo: "https://videeko-vanilla.vercel.app",
   },
   {
     title: "Suivi Aide Humanitaire",
-    client: "ONG humanitaire",
+    client: "Welthungerhilfe (WHH)",
     description:
-      "Plateforme de suivi et de coordination des actions d'aide humanitaire avec reporting des bénéficiaires.",
+      "Outil de coordination et de suivi des bénéficiaires pour les programmes d'aide humanitaire, reporting analytique et indicateurs clés.",
     technologies: ["React", "Next.js", "Laravel", "MySQL"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
+    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Gestion Matériel & Stock",
     client: "Gestion de contrats de personnel",
     description:
-      "Système de gestion de matériel et de stock lié aux contrats de personnel avec historique et alertes.",
+      "Système de gestion de matériel et de stock lié aux contrats de personnel avec historique des affectations et alertes d'inventaire.",
     technologies: ["React", "Next.js", "Laravel", "MySQL"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Distribution de Kit Scolaire",
-    client: "Cisco Midingy Atsimo",
-    description:
-      "Système de gestion et de suivi de la distribution de kits scolaires avec suivi des bénéficiaires.",
-    technologies: ["Vue.js", "Laravel", "MySQL"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
+    demo: "https://rekoma-318.vercel.app",
   },
 ];
 
@@ -301,8 +299,27 @@ export type AcademicProject = {
 
 export const academicProjects: AcademicProject[] = [
   {
+    title: "Plateforme Association REKOMA",
+    context: "Association REKOMA (Projet communautaire)",
+    description:
+      "Plateforme tout-en-un pour l'association REKOMA assurant la visibilité des initiatives, la gestion centralisée des membres, une boutique e-commerce pour financer les actions par la vente d'accessoires, et un outil de suivi des projets sur le terrain.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+    features: [
+      "Gestion centralisée des membres, adhésions et cotisations",
+      "Site public vitrine, actualités et communication officielle",
+      "Boutique solidaire et vente d'accessoires REKOMA en ligne",
+      "Planification, pilotage et gestion des projets communautaires",
+      "Suivi des activités, indicateurs clés et rapports d'impact",
+    ],
+    categories: ["Full Stack", "Web", "Data Management"],
+    icon: FaBoxOpen,
+    featured: true,
+    github: "https://github.com/Misaina23/rekoma",
+    demo: "https://rekoma-318.vercel.app",
+  },
+  {
     title: "Plateforme de gestion agricole",
-    context: "Coopérative agricole",
+    context: "Coopérative agricole (Videeko)",
     description:
       "Plateforme numérique complète destinée à accompagner une coopérative agricole dans la collecte, la gestion et l'analyse des données des producteurs sur le terrain.",
     technologies: ["React Native", "Next.js", "Django", "PostgreSQL"],
@@ -311,13 +328,46 @@ export const academicProjects: AcademicProject[] = [
       "Gestion des producteurs, parcelles et productions",
       "Suivi des inspections et distributions",
       "Tableau de bord statistique et cartographie",
-      "Synchronisation des données",
+      "Synchronisation des données hors-ligne",
     ],
     categories: ["Full Stack", "Data Management"],
     icon: PiPlantFill,
-    featured: true,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23/videeko",
+    demo: "https://videeko-vanilla.vercel.app",
+  },
+  {
+    title: "Gestion de Lycée (Lycée Midongy)",
+    context: "Établissement scolaire",
+    description:
+      "Application de gestion complète du parcours scolaire des élèves, de l'inscription jusqu'au suivi des résultats académiques et des bulletins scolaires.",
+    technologies: ["Vue.js", "Symfony", "MySQL"],
+    features: [
+      "Inscription et gestion des classes",
+      "Gestion des matières et enseignants",
+      "Saisie des notes et calcul des moyennes",
+      "Consultation des résultats et génération de bulletins",
+    ],
+    categories: ["Web"],
+    icon: FaSchool,
+    github: "https://github.com/Misaina23/lycee-midongy",
+    demo: "https://lyccemidongy.vercel.app",
+  },
+  {
+    title: "Gestion de Pointage Personnel",
+    context: "Ministère de l'Enseignement Supérieur",
+    description:
+      "Système de pointage et suivi de présence du personnel administratif avec interface d'administration et rapports automatisés.",
+    technologies: ["Vue.js", "Laravel", "MySQL"],
+    features: [
+      "Pointage journalier et horodatage",
+      "Tableau de bord de présence administrateur",
+      "Exportation des rapports de présences",
+      "Gestion des utilisateurs et rôles",
+    ],
+    categories: ["Web", "Full Stack"],
+    icon: FaServer,
+    github: "https://github.com/Misaina23/pointage",
+    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Application de suivi de dépenses",
@@ -333,42 +383,8 @@ export const academicProjects: AcademicProject[] = [
     ],
     categories: ["Mobile"],
     icon: FaMobileScreen,
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Système de gestion d'élèves",
-    context: "Lycée",
-    description:
-      "Application de gestion complète du parcours scolaire des élèves, de l'inscription jusqu'au suivi des résultats académiques.",
-    technologies: ["Vue.js", "Symfony", "MySQL"],
-    features: [
-      "Inscription et gestion des classes",
-      "Gestion des matières et enseignants",
-      "Saisie des notes et calcul des moyennes",
-      "Consultation des résultats",
-    ],
-    categories: ["Web"],
-    icon: FaSchool,
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Gestion de vente de produits laitiers",
-    context: "Application web commerciale",
-    description:
-      "Système de gestion destiné au suivi des ventes et de la commercialisation de produits laitiers.",
-    technologies: ["React.js", "Laravel", "MongoDB"],
-    features: [
-      "Gestion des produits et clients",
-      "Gestion des ventes et commandes",
-      "Suivi des stocks",
-      "Tableau de bord commercial",
-    ],
-    categories: ["Web", "Data Management"],
-    icon: FaBoxOpen,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
+    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Gestion de billets d'avion",
@@ -384,8 +400,8 @@ export const academicProjects: AcademicProject[] = [
     ],
     categories: ["Mobile"],
     icon: FaPlane,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
+    demo: "https://rekoma-318.vercel.app",
   },
    {
      title: "Réservation de restaurant",

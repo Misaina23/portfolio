@@ -6,15 +6,11 @@ import { ThemeToggle } from "./ThemeToggle";
 import { profile } from "@/lib/data";
 import { useLanguage, useT } from "@/lib/i18n";
 
-const links = [
+const desktopLinks = [
   { href: "#accueil", key: "home" },
-  { href: "#apropos", key: "about" },
   { href: "#competences", key: "skills" },
-  { href: "#experience", key: "experience" },
-  { href: "#formation", key: "education" },
   { href: "#projets", key: "projects" },
-  { href: "#academique", key: "academic" },
-  { href: "#services", key: "services" },
+  { href: "#experience", key: "experience" },
   { href: "#contact", key: "contact" },
 ];
 
@@ -43,9 +39,9 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent py-4"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Sliim-style Brand Logo */}
-        <a href="#accueil" className="flex items-center gap-2.5">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-8">
+        {/* Brand Logo: Clean 1-line text */}
+        <a href="#accueil" className="flex items-center gap-2.5 whitespace-nowrap shrink-0">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-xs font-black uppercase text-primary-foreground font-display">
             {profile.firstName[0]}
             {profile.lastName[0]}
@@ -55,13 +51,13 @@ export function Navbar() {
           </span>
         </a>
 
-        {/* Center Nav Links */}
-        <div className="hidden items-center gap-1 xl:gap-2 lg:flex">
-          {links.map((link) => (
+        {/* Center Nav Links: 5 clean items */}
+        <div className="hidden md:flex items-center gap-6">
+          {desktopLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-md px-2.5 py-1.5 text-xs font-bold uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary font-display"
+              className="text-xs font-bold uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary font-display whitespace-nowrap"
             >
               {t.nav[link.key as keyof typeof t.nav]}
             </a>
@@ -120,7 +116,7 @@ export function Navbar() {
         }`}
       >
         <div className="space-y-1 px-4 py-3">
-          {links.map((link) => (
+          {desktopLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}

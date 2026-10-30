@@ -1,139 +1,106 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Download, Mail, Play, Pause, Volume2, VolumeX, Maximize2, X, MapPin, CheckCircle, Code } from "lucide-react";
+import { Download, Mail, ArrowRight, ExternalLink, Code2, Database, Smartphone } from "lucide-react";
 import { profile } from "@/lib/data";
 import { useLanguage, useT } from "@/lib/i18n";
 import { EASE } from "@/lib/motion";
+
+const deployedApps = [
+  { name: "REKOMA Association", url: "https://rekoma-318.vercel.app", stack: "Next.js · PostgreSQL" },
+  { name: "Pointage Personnel", url: "https://pointagemisaina.vercel.app", stack: "Vue.js · Laravel" },
+  { name: "Lycée Midongy", url: "https://lyccemidongy.vercel.app", stack: "Vue.js · Symfony" },
+  { name: "Plateforme Agricole", url: "https://videeko-vanilla.vercel.app", stack: "Next.js · Django" },
+];
 
 export function Hero() {
   const { locale } = useLanguage();
   const t = useT();
   const cvHref = locale === "fr" ? "/documents/sainacv.PDF" : "/documents/ResumeSaina.pdf";
 
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const [showModal, setShowModal] = useState(false);
-
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsPlaying(true);
-    }
-  };
-
-  const toggleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
-  };
-
   return (
     <section
       id="accueil"
-      className="relative flex min-h-screen items-center overflow-hidden bg-background pt-20 pb-16"
+      className="relative flex min-h-[92vh] items-center overflow-hidden bg-background pt-24 pb-16 border-b border-border/60"
     >
-      {/* Background ambient video loop - Sliim index-video signature */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20 dark:opacity-15">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/images/Saina.png"
-          className="h-full w-full object-cover object-center filter grayscale contrast-125"
-        >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/90" />
+      {/* Subtle background ambient mesh */}
+      <div className="absolute inset-0 pointer-events-none opacity-40 dark:opacity-25">
+        <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute top-1/2 -right-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
           
-          {/* Left Column: Authentic Sliim Typography & Introduction */}
+          {/* Left Column: Authentic Executive Developer Typography */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: EASE }}
+            transition={{ duration: 0.6, ease: EASE }}
             className="text-center lg:text-left lg:col-span-7"
           >
-            {/* Small uppercase eyebrow badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-              </span>
-              {locale === "fr" ? "Disponible pour nouveaux projets" : "Available for freelance & full-time"}
+            {/* Professional status kicker */}
+            <div className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-widest font-display">
+              <span className="text-primary font-bold">ANDRIANISAINA</span>
+              <span>·</span>
+              <span>Nanga Miaramanana</span>
+              <span>·</span>
+              <span className="text-foreground">{profile.location}</span>
             </div>
 
-            {/* Main Bold Name */}
-            <h1 className="mt-6 text-3xl font-extrabold uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl font-display leading-[1.08]">
-              {profile.firstName}{" "}
-              <span className="text-primary">{profile.lastName}</span>
-              <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold text-muted-foreground mt-2 normal-case tracking-normal">
-                Miaramanana
-              </span>
+            {/* Impactful headline */}
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-display leading-[1.08] text-balance">
+              Développeur Full Stack <br />
+              <span className="text-primary">Web & Mobile</span>
             </h1>
 
-            {/* Subtitle / Role with clean Sliim styling */}
-            <div className="mt-4 flex items-center justify-center lg:justify-start gap-2">
-              <span className="h-0.5 w-8 bg-primary rounded-full hidden sm:inline-block" />
-              <p className="text-lg sm:text-xl font-bold uppercase tracking-wider text-primary font-display">
-                {t.hero.title}
-              </p>
-            </div>
-
-            {/* Concise Bio */}
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
-              {t.hero.subtitle}
+            {/* Concise professional pitch */}
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
+              {locale === "fr"
+                ? "Diplômé de l'École Nationale d'Informatique (ENI) en Génie Logiciel & Bases de Données. Je conçois des plateformes web performantes, des backends modulaires et des applications mobiles axées sur les résultats terrain."
+                : "Graduate of the National School of Computer Science (ENI) in Software Engineering & Databases. I design high-performance web platforms, modular backends, and field-ready mobile apps."}
             </p>
 
-            {/* Quick Specs / Pills */}
-            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 shadow-sm">
-                <MapPin className="h-3.5 w-3.5 text-primary" />
-                {profile.location}
+            {/* Core Pillars */}
+            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-medium text-muted-foreground">
+              <span className="inline-flex items-center gap-1.5 text-foreground">
+                <Code2 className="h-4 w-4 text-primary" />
+                Next.js · React · Vue · TypeScript
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 shadow-sm">
-                <Code className="h-3.5 w-3.5 text-primary" />
-                React • Next.js • Vue • Laravel • Django
+              <span aria-hidden="true" className="text-border">·</span>
+              <span className="inline-flex items-center gap-1.5 text-foreground">
+                <Database className="h-4 w-4 text-primary" />
+                Laravel · Django · PostgreSQL · MySQL
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 shadow-sm">
-                <CheckCircle className="h-3.5 w-3.5 text-primary" />
-                BAC+3 Génie Logiciel (ENI)
+              <span aria-hidden="true" className="text-border">·</span>
+              <span className="inline-flex items-center gap-1.5 text-foreground">
+                <Smartphone className="h-4 w-4 text-primary" />
+                React Native · Flutter
               </span>
             </div>
 
-            {/* Sliim-style CTA Buttons */}
+            {/* Direct Action Buttons */}
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:gap-4 lg:justify-start">
+              <a
+                href="#projets"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow transition-all hover:-translate-y-0.5 hover:shadow-md sm:w-auto font-display"
+              >
+                <span>{locale === "fr" ? "Voir les projets" : "View projects"}</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+
               <a
                 href={cvHref}
                 download
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg sm:w-auto font-display"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-card px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-foreground transition-all hover:border-primary hover:text-primary hover:-translate-y-0.5 sm:w-auto font-display"
               >
-                <Download className="h-4 w-4" />
+                <Download className="h-4 w-4 text-primary" />
                 {t.common.downloadCv}
               </a>
 
-              <button
-                type="button"
-                onClick={() => setShowModal(true)}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-primary/50 bg-primary/5 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 sm:w-auto font-display"
-              >
-                <Play className="h-4 w-4 text-primary fill-primary" />
-                {locale === "fr" ? "Voir la vidéo" : "Watch Video"}
-              </button>
-
               <a
                 href="#contact"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-card px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-foreground transition-all hover:border-primary hover:text-primary hover:-translate-y-0.5 sm:w-auto font-display"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-muted/30 px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-muted-foreground transition-all hover:text-foreground sm:w-auto font-display"
               >
                 <Mail className="h-4 w-4" />
                 {t.common.contactMe}
@@ -141,105 +108,88 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: Sliim Video Hero Card generated from his photo */}
+          {/* Right Column: 15-second looping developer video with zero controls */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.15 }}
+            transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
             className="lg:col-span-5 flex justify-center"
           >
-            <div className="relative w-full max-w-sm sm:max-w-md">
-              {/* Subtle accent border corner decoration */}
-              <div className="absolute -top-3 -right-3 h-20 w-20 border-t-2 border-r-2 border-primary rounded-tr-2xl pointer-events-none z-10" />
-              <div className="absolute -bottom-3 -left-3 h-20 w-20 border-b-2 border-l-2 border-primary rounded-bl-2xl pointer-events-none z-10" />
-
-              {/* Main Card Container */}
+            <div className="relative w-full max-w-lg">
+              {/* Dark terminal / IDE container */}
               <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
-                {/* Video Container */}
-                <div className="relative aspect-square w-full overflow-hidden bg-black">
-                  <video
-                    ref={videoRef}
-                    autoPlay
-                    loop
-                    muted={isMuted}
-                    playsInline
-                    poster="/images/Saina.png"
-                    className="h-full w-full object-cover object-top"
-                  >
-                    <source src="/videos/saina-presentation.mp4" type="video/mp4" />
-                  </video>
-
-                  {/* Dark subtle gradient overlay at bottom for controls */}
-                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
-
-                  {/* Floating Badge */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="inline-flex items-center gap-1.5 rounded-md bg-black/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur border border-white/10 uppercase tracking-wider">
-                      <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                      {locale === "fr" ? "Vidéo Présentation" : "Video Presentation"}
+                {/* IDE Window Header */}
+                <div className="flex items-center justify-between border-b border-border bg-muted/60 px-4 py-2.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-green-500/80" />
+                    <span className="ml-2 font-mono text-[11px] text-muted-foreground">
+                      saina@dev: ~/portfolio
                     </span>
                   </div>
-
-                  {/* Top Right Expand Button */}
-                  <button
-                    type="button"
-                    onClick={() => setShowModal(true)}
-                    aria-label="Plein écran"
-                    className="absolute top-3 right-3 z-10 grid h-8 w-8 place-items-center rounded-md bg-black/70 text-white backdrop-blur border border-white/10 transition-colors hover:bg-primary hover:text-black"
-                  >
-                    <Maximize2 className="h-4 w-4" />
-                  </button>
-
-                  {/* Bottom Video Controls */}
-                  <div className="absolute inset-x-0 bottom-3 px-4 z-10 flex items-center justify-between text-white">
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={togglePlay}
-                        aria-label={isPlaying ? "Mettre en pause" : "Lire"}
-                        className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-black transition-transform hover:scale-105 font-bold"
-                      >
-                        {isPlaying ? <Pause className="h-4 w-4 fill-black" /> : <Play className="h-4 w-4 fill-black ml-0.5" />}
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={toggleMute}
-                        aria-label={isMuted ? "Activer le son" : "Couper le son"}
-                        className="grid h-8 w-8 place-items-center rounded-md bg-black/60 text-white backdrop-blur border border-white/10 transition-colors hover:bg-white/20"
-                      >
-                        {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-                      </button>
-                    </div>
-
-                    <div className="text-right">
-                      <p className="text-xs font-bold text-white tracking-wide">
-                        {profile.fullName}
-                      </p>
-                      <p className="text-[11px] text-primary font-medium">
-                        {profile.title}
-                      </p>
-                    </div>
+                  <div className="flex items-center gap-1 text-[11px] font-mono text-primary font-semibold">
+                    <span>15s loop</span>
+                    <span>·</span>
+                    <span className="text-muted-foreground">production</span>
                   </div>
                 </div>
 
-                {/* Card Footer Info */}
-                <div className="p-4 border-t border-border bg-card">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
-                        {locale === "fr" ? "Statut" : "Status"}
-                      </p>
-                      <p className="text-sm font-bold text-foreground">
-                        {locale === "fr" ? "Prêt pour de nouveaux défis" : "Ready for new challenges"}
-                      </p>
+                {/* 15-second continuous coding video with NO pause/play/mute buttons */}
+                <div className="relative aspect-video w-full overflow-hidden bg-black">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster="/images/ai-developer-coding.jpg"
+                    className="h-full w-full object-cover object-center"
+                  >
+                    <source src="/videos/coding-ai-15s.mp4" type="video/mp4" />
+                  </video>
+
+                  {/* Subtle code overlay scrim */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+
+                  {/* Active code typing subtitle badge in bottom overlay */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white pointer-events-none">
+                    <div className="font-mono text-xs">
+                      <span className="text-emerald-400 font-bold">✓ live code</span>
+                      <span className="text-white/60 ml-2">Next.js • Laravel • PostgreSQL</span>
                     </div>
-                    <a
-                      href="#apropos"
-                      className="text-xs font-bold uppercase tracking-wider text-primary hover:underline"
-                    >
-                      {locale === "fr" ? "En savoir +" : "Learn more →"}
-                    </a>
+                    <span className="font-mono text-[11px] text-primary bg-primary/20 border border-primary/30 px-2 py-0.5 rounded">
+                      ready
+                    </span>
+                  </div>
+                </div>
+
+                {/* Live Deployed Applications Quick Access Strip */}
+                <div className="p-4 bg-card border-t border-border">
+                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-border/50 text-xs font-bold uppercase tracking-wider text-muted-foreground font-display">
+                    <span>{locale === "fr" ? "Démos en ligne directes" : "Live deployed demos"}</span>
+                    <span className="text-primary font-mono text-[11px]">4 live</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    {deployedApps.map((app) => (
+                      <a
+                        key={app.name}
+                        href={app.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex flex-col rounded-lg border border-border/80 bg-muted/40 p-2.5 transition-all hover:border-primary/60 hover:bg-muted"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-foreground group-hover:text-primary transition-colors truncate">
+                            {app.name}
+                          </span>
+                          <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-primary flex-shrink-0 ml-1" />
+                        </div>
+                        <span className="text-[10px] text-muted-foreground font-mono mt-0.5 truncate">
+                          {app.stack}
+                        </span>
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -248,57 +198,6 @@ export function Hero() {
 
         </div>
       </div>
-
-      {/* Presentation Video Modal */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-card shadow-2xl">
-            <div className="flex items-center justify-between border-b border-border px-5 py-3">
-              <div>
-                <h3 className="text-base font-bold text-foreground font-display">
-                  {profile.fullName} — {profile.title}
-                </h3>
-                <p className="text-xs text-muted-foreground">
-                  {locale === "fr" ? "Présentation vidéo du profil" : "Profile video presentation"}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowModal(false)}
-                aria-label="Fermer"
-                className="grid h-8 w-8 place-items-center rounded-lg border border-border text-foreground transition-colors hover:bg-muted"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            <div className="relative aspect-video w-full bg-black">
-              <video
-                autoPlay
-                loop
-                controls
-                playsInline
-                className="h-full w-full object-contain"
-              >
-                <source src="/videos/saina-presentation.mp4" type="video/mp4" />
-              </video>
-            </div>
-
-            <div className="flex items-center justify-between p-4 bg-muted/40">
-              <div className="text-xs text-muted-foreground">
-                <span className="font-semibold text-foreground">{profile.location}</span> • {profile.email}
-              </div>
-              <a
-                href="#contact"
-                onClick={() => setShowModal(false)}
-                className="rounded-lg bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground"
-              >
-                {t.common.contactMe}
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

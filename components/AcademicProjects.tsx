@@ -186,22 +186,27 @@ export function AcademicProjects() {
                   </div>
 
                   <div className="mt-5 flex gap-2 pt-4 border-t border-border">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border bg-card px-3 py-2 text-xs font-bold uppercase tracking-wider text-foreground transition-colors hover:border-primary hover:text-primary font-display"
-                    >
-                      <FaGithub className="h-3.5 w-3.5" /> {t.common.github}
-                    </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow transition-transform hover:-translate-y-0.5 font-display"
-                    >
-                      <Link2 className="h-3.5 w-3.5" /> {t.common.demo}
-                    </a>
+                    {project.github && project.github !== "#" && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border bg-card px-3 py-2 text-xs font-bold uppercase tracking-wider text-foreground transition-colors hover:border-primary hover:text-primary font-display"
+                      >
+                        <FaGithub className="h-3.5 w-3.5" /> {t.common.github}
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow transition-transform hover:-translate-y-0.5 font-display"
+                      >
+                        <Link2 className="h-3.5 w-3.5" />
+                        {project.demo.includes("vercel.app") ? "Démo Directe" : t.common.demo}
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.article>

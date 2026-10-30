@@ -11,6 +11,7 @@ import {
   FaPlane,
   FaUtensils,
   FaMagnifyingGlass,
+  FaServer,
 } from "react-icons/fa6";
 import { PiPlantFill } from "react-icons/pi";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -171,58 +172,58 @@ export type ProjectEn = {
 
 export const projectsEn: ProjectEn[] = [
   {
+    title: "REKOMA Association Platform",
+    client: "REKOMA Association",
+    description:
+      "Integrated community portal featuring member & membership management, public vitrine site, online store for solidarity accessories, and association project tracking.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+    github: "https://github.com/Misaina23/rekoma",
+    demo: "https://rekoma-318.vercel.app",
+  },
+  {
     title: "Staff Time-Tracking Management",
-    client: "Ministry of Higher Education & Scientific Research",
+    client: "Ministry of Higher Education",
     description:
-      "Staff time-tracking management system with attendance monitoring, admin interface and automated reports.",
+      "Staff time-tracking management system with attendance monitoring, admin interface and automated timesheet reports.",
     technologies: ["Vue.js", "Laravel", "MySQL"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23/pointage",
+    demo: "https://pointagemisaina.vercel.app",
   },
   {
-    title: "Seed Distribution Management",
-    client: "Agricultural project",
+    title: "High School Management System",
+    client: "Midongy High School",
     description:
-      "Application for managing and monitoring agricultural seed distribution with dashboards.",
-    technologies: ["Vue.js", "Django", "MySQL"],
-    github: "#",
-    demo: "#",
+      "Integrated school platform: student enrollment, class management, scheduling, grade entry, and automated report cards.",
+    technologies: ["Vue.js", "Symfony", "MySQL"],
+    github: "https://github.com/Misaina23/lycee-midongy",
+    demo: "https://lyccemidongy.vercel.app",
   },
   {
-    title: "Restaurant Management",
-    client: "Restaurant establishments",
+    title: "Agricultural Management Platform",
+    client: "Agricultural Cooperative (Videeko)",
     description:
-      "Complete management system for restaurant establishments: orders, inventory and activity tracking.",
-    technologies: ["JSP", "MySQL"],
-    github: "#",
-    demo: "#",
+      "Agricultural distribution management application with field data collection, seed inventory, and parcel mapping.",
+    technologies: ["Next.js", "Django", "PostgreSQL"],
+    github: "https://github.com/Misaina23/videeko",
+    demo: "https://videeko-vanilla.vercel.app",
   },
   {
     title: "Humanitarian Aid Tracking",
-    client: "Humanitarian NGO",
+    client: "Welthungerhilfe (WHH)",
     description:
-      "Platform for tracking and coordinating humanitarian aid actions with beneficiary reporting.",
+      "Platform for tracking and coordinating humanitarian aid actions with beneficiary reporting and KPI dashboards.",
     technologies: ["React", "Next.js", "Laravel", "MySQL"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
+    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Equipment & Stock Management",
-    client: "Personnel contract management",
+    client: "Personnel Contract Management",
     description:
-      "Equipment and stock management system linked to personnel contracts with history and alerts.",
+      "Equipment and stock management system linked to personnel contracts with history and inventory alerts.",
     technologies: ["React", "Next.js", "Laravel", "MySQL"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "School Kit Distribution",
-    client: "Cisco Midingy Atsimo",
-    description:
-      "Management and tracking system for school kit distribution with beneficiary follow-up.",
-    technologies: ["Vue.js", "Laravel", "MySQL"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
+    demo: "https://rekoma-318.vercel.app",
   },
 ];
 
@@ -241,8 +242,27 @@ export type AcademicProjectEn = {
 
 export const academicProjectsEn: AcademicProjectEn[] = [
   {
+    title: "REKOMA Association Platform",
+    context: "REKOMA Association (Community Project)",
+    description:
+      "Comprehensive digital platform for REKOMA Association: public showcase site, centralized member and membership management, charity e-commerce store for solidarity accessories, and field project monitoring.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+    features: [
+      "Centralized member, membership, and dues management",
+      "Public vitrine site, news, and official communication",
+      "Charity e-commerce store for REKOMA accessories",
+      "Planning, tracking, and management of solidarity projects",
+      "Activity tracking, key performance indicators, and impact reports",
+    ],
+    categories: ["Full Stack", "Web", "Data Management"],
+    icon: FaBoxOpen,
+    featured: true,
+    github: "https://github.com/Misaina23/rekoma",
+    demo: "https://rekoma-318.vercel.app",
+  },
+  {
     title: "Agricultural Management Platform",
-    context: "Agricultural cooperative",
+    context: "Agricultural Cooperative (Videeko)",
     description:
       "Complete digital platform designed to support an agricultural cooperative in collecting, managing and analyzing producer data in the field.",
     technologies: ["React Native", "Next.js", "Django", "PostgreSQL"],
@@ -251,13 +271,46 @@ export const academicProjectsEn: AcademicProjectEn[] = [
       "Producer, plot and production management",
       "Inspection and distribution tracking",
       "Statistical dashboard and mapping",
-      "Data synchronization",
+      "Offline data synchronization",
     ],
     categories: ["Full Stack", "Data Management"],
     icon: PiPlantFill,
-    featured: true,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23/videeko",
+    demo: "https://videeko-vanilla.vercel.app",
+  },
+  {
+    title: "High School Management System",
+    context: "Midongy High School",
+    description:
+      "Complete student academic tracking application, from enrollment to academic results and automated report cards.",
+    technologies: ["Vue.js", "Symfony", "MySQL"],
+    features: [
+      "Class management and enrollment",
+      "Subject and teacher management",
+      "Grade entry and average calculation",
+      "Results consultation and report generation",
+    ],
+    categories: ["Web"],
+    icon: FaSchool,
+    github: "https://github.com/Misaina23/lycee-midongy",
+    demo: "https://lyccemidongy.vercel.app",
+  },
+  {
+    title: "Staff Time-Tracking Management",
+    context: "Ministry of Higher Education",
+    description:
+      "Staff attendance tracking system with administrative dashboard and automated timesheet reports.",
+    technologies: ["Vue.js", "Laravel", "MySQL"],
+    features: [
+      "Daily time-tracking and timestamping",
+      "Administrator attendance dashboard",
+      "Attendance report export",
+      "User and role management",
+    ],
+    categories: ["Web", "Full Stack"],
+    icon: FaServer,
+    github: "https://github.com/Misaina23/pointage",
+    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Expense Tracker App",
@@ -273,42 +326,8 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     ],
     categories: ["Mobile"],
     icon: FaMobileScreen,
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Student Management System",
-    context: "High school",
-    description:
-      "Complete student academic tracking application, from enrollment to academic results follow-up.",
-    technologies: ["Vue.js", "Symfony", "MySQL"],
-    features: [
-      "Class management and enrollment",
-      "Subject and teacher management",
-      "Grade entry and average calculation",
-      "Results consultation",
-    ],
-    categories: ["Web"],
-    icon: FaSchool,
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Dairy Product Sales Management",
-    context: "Commercial web application",
-    description:
-      "Management system for tracking sales and marketing of dairy products.",
-    technologies: ["React.js", "Laravel", "MongoDB"],
-    features: [
-      "Product and customer management",
-      "Sales and order management",
-      "Inventory tracking",
-      "Commercial dashboard",
-    ],
-    categories: ["Web", "Data Management"],
-    icon: FaBoxOpen,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
+    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Airline Ticket Booking",
@@ -324,8 +343,8 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     ],
     categories: ["Mobile"],
     icon: FaPlane,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
+    demo: "https://rekoma-318.vercel.app",
   },
   {
     title: "Restaurant Reservation",

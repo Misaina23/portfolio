@@ -21,9 +21,16 @@ export async function POST(request: Request) {
     const to = process.env.CONTACT_TO || "andrianisaina23@gmail.com";
 
     if (!host || !user || !pass) {
+      console.warn("[Portfolio Contact] SMTP credentials not configured. Message simulated in dev/preview:", {
+        name,
+        email,
+        subject,
+        message,
+        receivedAt: new Date().toISOString(),
+      });
       return new Response(
-        JSON.stringify({ error: "Configuration SMTP manquante sur le serveur." }),
-        { status: 500, headers: { "Content-Type": "application/json" } }
+        JSON.stringify({ ok: true, simulated: true, note: "Message reçu en mode simulation (SMTP non configuré)" }),
+        { status: 200, headers: { "Content-Type": "application/json" } }
       );
     }
 
