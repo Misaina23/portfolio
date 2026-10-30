@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { profile } from "@/lib/data";
@@ -22,12 +23,27 @@ export function Footer() {
     <footer className="border-t border-border bg-card">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
-          {/* Brand & bio */}
+          {/* Brand & bio with real photo */}
           <div className="md:col-span-5">
-            <span className="text-xl font-extrabold uppercase tracking-tight text-foreground font-display">
-              Dev<span className="text-primary">Misaina</span>
-            </span>
-            <p className="mt-3 max-w-md text-xs sm:text-sm leading-relaxed text-muted-foreground">
+            <div className="flex items-center gap-3.5 mb-3">
+              <Image
+                src="/images/saina-real.jpg"
+                alt="Saina Miaramanana"
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-full object-cover object-top border-2 border-primary shadow-sm"
+                referrerPolicy="no-referrer"
+              />
+              <div>
+                <span className="text-base font-bold text-foreground font-display block leading-tight">
+                  ANDRIANISAINA <span className="text-primary italic font-serif">Nanga Miaramanana</span>
+                </span>
+                <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider block">
+                  Développeur Full Stack · Madagascar
+                </span>
+              </div>
+            </div>
+            <p className="mt-3 max-w-md text-xs sm:text-sm leading-relaxed text-muted-foreground font-mono">
               {t.footer.description}
             </p>
             <div className="mt-5 flex gap-2">

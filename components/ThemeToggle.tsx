@@ -4,8 +4,8 @@ import { useSyncExternalStore, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 
 const subscribe = () => () => {};
-const getSnapshot = () => document.documentElement.classList.contains("dark");
-const getServerSnapshot = () => false;
+const getSnapshot = () => (typeof document !== "undefined" ? document.documentElement.classList.contains("dark") : true);
+const getServerSnapshot = () => true;
 
 export function ThemeToggle() {
   const isDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
@@ -27,9 +27,9 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Basculer le thème clair / sombre"
-      className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-muted"
+      className="relative inline-flex h-9 w-9 items-center justify-center rounded-sm border border-border bg-card text-foreground transition-colors hover:border-primary hover:text-primary"
     >
-      {isDark ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+      {isDark ? <Sun className="h-4 w-4 text-primary" /> : <Moon className="h-4 w-4 text-foreground" />}
     </button>
   );
 }

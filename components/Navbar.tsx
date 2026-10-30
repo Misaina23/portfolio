@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -8,6 +9,7 @@ import { useLanguage, useT } from "@/lib/i18n";
 
 const desktopLinks = [
   { href: "#accueil", key: "home" },
+  { href: "#apropos", key: "about" },
   { href: "#competences", key: "skills" },
   { href: "#projets", key: "projects" },
   { href: "#experience", key: "experience" },
@@ -35,24 +37,44 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border bg-background/95 backdrop-blur-md shadow-xs py-2.5"
+          ? "border-b border-border bg-background/95 backdrop-blur-md shadow-xs py-2"
           : "border-b border-transparent bg-transparent py-4"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-8">
-        {/* Brand Logo: Clean 1-line text */}
-        <a href="#accueil" className="flex items-center gap-2.5 whitespace-nowrap shrink-0">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-xs font-black uppercase text-primary-foreground font-display">
-            {profile.firstName[0]}
-            {profile.lastName[0]}
-          </span>
-          <span className="text-lg font-extrabold uppercase tracking-tight text-foreground font-display">
-            Dev<span className="text-primary">Misaina</span>
-          </span>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-6">
+        {/* Real Photo Brand Emblem Logo */}
+        <a
+          href="#accueil"
+          className="flex items-center gap-3 whitespace-nowrap shrink-0 group"
+          aria-label="Saina Miaramanana - Accueil"
+        >
+          <div className="relative">
+            <Image
+              src="/images/saina-real.jpg"
+              alt={profile.fullName}
+              width={42}
+              height={42}
+              className="h-10 w-10 sm:h-11 sm:w-11 rounded-full object-cover object-top border-2 border-primary shadow-sm transition-transform duration-300 group-hover:scale-105"
+              referrerPolicy="no-referrer"
+              priority
+            />
+            <span
+              className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-500 border-2 border-background"
+              title="Disponible pour projets"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm sm:text-base font-bold tracking-tight text-foreground font-display leading-tight group-hover:text-primary transition-colors">
+              {profile.firstName} <span className="text-primary italic font-serif">{profile.lastName}</span>
+            </span>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+              {profile.title}
+            </span>
+          </div>
         </a>
 
-        {/* Center Nav Links: 5 clean items */}
-        <div className="hidden md:flex items-center gap-7">
+        {/* Center Nav Links */}
+        <div className="hidden lg:flex items-center gap-6">
           {desktopLinks.map((link) => (
             <a
               key={link.href}
