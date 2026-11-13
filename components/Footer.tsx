@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { profile } from "@/lib/data";
 import { useT, useLanguage } from "@/lib/i18n";
 
@@ -28,7 +28,7 @@ export function Footer() {
             <div className="flex items-center gap-3.5 mb-3">
               <Image
                 src="/images/saina-real.jpg"
-                alt="DevMisaina"
+                alt={profile.fullName}
                 width={48}
                 height={48}
                 className="h-12 w-12 rounded-full object-cover object-top border-2 border-primary shadow-sm"
@@ -36,10 +36,12 @@ export function Footer() {
               />
               <div>
                 <span className="text-base font-bold text-foreground font-display block leading-tight">
-                  Dev<span className="text-primary italic font-serif">Misaina</span>
+                  Dev<span className="text-primary italic font-serif">Misaina</span> · {profile.fullName}
                 </span>
                 <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider block">
-                  Développeur Full Stack · Madagascar
+                  {locale === "fr"
+                    ? "Développeur web & concepteur de bases de données"
+                    : "Web Developer & Database Designer"}
                 </span>
               </div>
             </div>
@@ -66,13 +68,13 @@ export function Footer() {
                 <FaGithub className="h-4 w-4" />
               </a>
               <a
-                href={profile.socials.twitter}
+                href={profile.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Twitter"
+                aria-label="Facebook"
                 className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-muted/30 text-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5"
               >
-                <FaXTwitter className="h-4 w-4" />
+                <FaFacebook className="h-4 w-4" />
               </a>
             </div>
           </div>

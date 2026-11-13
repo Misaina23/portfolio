@@ -196,7 +196,7 @@ export function AcademicProjects() {
                         <FaGithub className="h-3.5 w-3.5" /> {t.common.github}
                       </a>
                     )}
-                    {project.demo && (
+                    {project.demo && project.demo !== "#" && (
                       <a
                         href={project.demo}
                         target="_blank"

@@ -1,29 +1,28 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Download, Mail, ArrowRight, ExternalLink } from "lucide-react";
-import { FaLinkedin, FaGithub, FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa6";
 import { profile } from "@/lib/data";
 import { useLanguage, useT } from "@/lib/i18n";
 import { EASE } from "@/lib/motion";
 
 const deployedApps = [
+  { name: "Videeko Vanilla", url: "https://videeko-vanilla.vercel.app", stack: "Next.js · Django · RN" },
   { name: "REKOMA Association", url: "https://rekoma-318.vercel.app", stack: "Next.js · PostgreSQL" },
-  { name: "Pointage Personnel", url: "https://pointagemisaina.vercel.app", stack: "Vue.js · Laravel" },
-  { name: "Lycée Midongy", url: "https://lycceemidongysud.vercel.app/", stack: "Vue.js · Symfony" },
-  { name: "Plateforme Agricole", url: "https://videeko-vanilla.vercel.app", stack: "Next.js · Django" },
+  { name: "Pointage MESUPRES", url: "https://pointagemisaina.vercel.app", stack: "React · Laravel · PgSQL" },
+  { name: "Lycée Midongy", url: "https://lycceemidongysud.vercel.app/", stack: "Vue.js · Symfony · MySQL" },
 ];
 
 export function Hero() {
   const { locale } = useLanguage();
   const t = useT();
-  const cvHref = locale === "fr" ? "/documents/sainacv.PDF" : "/documents/ResumeSaina.pdf";
+  const cvHref = profile.cv;
 
   return (
     <section
       id="accueil"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background pt-20 pb-24"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background pt-24 pb-24"
     >
       {/* Background Video - Sliim index-video signature */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -54,35 +53,22 @@ export function Hero() {
           transition={{ duration: 0.7, ease: EASE }}
           className="flex flex-col items-center"
         >
-          {/* Subtle real portrait badge */}
-          <div className="mb-6 flex items-center gap-3 rounded-full border border-border/80 bg-card/60 px-4 py-1.5 backdrop-blur-md shadow-xs">
-            <Image
-              src="/images/saina-real.jpg"
-              alt="DevMisaina"
-              width={32}
-              height={32}
-              className="h-8 w-8 rounded-full object-cover object-top border border-primary/50"
-              referrerPolicy="no-referrer"
-            />
-            <span className="text-xs font-mono font-medium text-foreground tracking-wider uppercase">
-              DevMisaina
-            </span>
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          </div>
-
-          {/* Sliim Heading: strictly starting with 'I am DevMisaina' */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground font-display leading-[1.05]">
-            I am{" "}
+          {/* Sliim Heading with real name */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground font-display leading-[1.1]">
+            I’m{" "}
             <span className="text-primary italic font-serif">
-              DevMisaina
+              ANDRIANISAINA
+            </span>{" "}
+            <span className="block sm:inline text-primary italic font-serif">
+              Nanga Miaramanana
             </span>
           </h1>
 
-          {/* Sliim Subtitle in IBM Plex Mono */}
+          {/* Sliim Subtitle aligned with CV */}
           <p className="mt-6 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground font-mono">
             {locale === "fr"
-              ? "Je suis Développeur Full Stack Web & Mobile basé à Madagascar, diplômé de l'ENI. Je conçois des solutions digitales complètes et robustes."
-              : "I'm a Full Stack Web & Mobile Developer based in Madagascar, ENI graduate. I build complete, performant digital platforms."}
+              ? "Développeur web & concepteur de bases de données — Licencié en informatique (ENI), actuellement en Master 2. Plus de 4 ans d'expérience en gestion de données et développement web."
+              : "Web Developer & Database Designer — B.Sc. in Computer Science (ENI), currently in Master 2. Over 4 years of experience in data management and web application development."}
           </p>
 
           {/* Sliim Signature Buttons */}
@@ -173,13 +159,13 @@ export function Hero() {
           </li>
           <li>
             <a
-              href={profile.socials.twitter}
+              href={profile.socials.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Twitter"
+              aria-label="Facebook"
               className="grid h-10 w-10 place-items-center rounded-sm border border-border/80 bg-card/80 text-foreground backdrop-blur-xs transition-all hover:bg-primary hover:text-primary-foreground hover:-translate-y-1"
             >
-              <FaXTwitter className="h-4 w-4" />
+              <FaFacebook className="h-4 w-4" />
             </a>
           </li>
         </ul>

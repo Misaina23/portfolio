@@ -19,43 +19,44 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export { useLanguage };
 
 export const profileEn = {
-  firstName: "DevMisaina",
-  lastName: "",
-  fullName: "DevMisaina",
+  firstName: "Nanga Miaramanana",
+  lastName: "ANDRIANISAINA",
+  fullName: "ANDRIANISAINA Nanga Miaramanana",
   displayName: "DevMisaina",
-  title: "Full Stack Web & Mobile Developer",
+  title: "Web Developer & Database Designer",
   tagline:
-    "I design high-performance web and mobile applications, from database to interface, turning ideas into real products.",
+    "B.Sc. in Computer Science (ENI, University of Fianarantsoa), currently in Master 2. Over 4 years of experience in data management and web application development.",
   email: "andrianisaina23@gmail.com",
   phone: "+261 34 95 441 74",
-  location: "Fianarantsoa, Madagascar",
+  location: "Lot 1112/3N/3306, Fianarantsoa",
+  website: "portfolio-devmisaina.vercel.app",
   photo: "/images/saina-real.jpg",
-  cv: "/documents/ResumeSaina.pdf",
+  cv: "/assets/aistudio/CV_ANDRIANISAINA_Nanga_Miaramanana_15866a6a.pdf",
   socials: {
-    linkedin: "https://www.linkedin.com/",
-    github: "https://github.com/",
-    twitter: "https://twitter.com/",
+    linkedin: "https://www.linkedin.com/in/devmisaina",
+    github: "https://github.com/Misaina23",
+    facebook: "https://www.facebook.com/andrianisaina.nangamiaramanana",
   },
 };
 
 export const aboutEn = {
   description:
-    "Passionate about web and mobile development, I build complete solutions combining proven backend technologies with modern interfaces. Specialized in Vue.js, React, TypeScript, Laravel and Django, I also develop intelligent applications and systems based on logic programming.",
+    "Passionate about software architecture, modern web development and designing complex relational databases. I build robust, scalable and user-centered solutions using rigorous agile methodologies, with solid experience in Monitoring & Evaluation (MEAL) and humanitarian information systems.",
   highlights: [
     {
       icon: "code",
-      title: "Full Stack Development",
-      text: "Complete web and mobile applications, from front-end to database.",
+      title: "Full Stack Web Development",
+      text: "Robust web and mobile applications built with Vue.js, React, Next.js, Laravel and Django.",
     },
     {
       icon: "database",
-      title: "Data Design",
-      text: "Modeling, optimization and administration of relational and NoSQL databases.",
+      title: "Data Design & Governance",
+      text: "MERISE / 2TUP modeling, MySQL / PostgreSQL relational databases and Power BI visualization.",
     },
     {
       icon: "rocket",
-      title: "Deployment",
-      text: "Deployment, REST API and integration of field-ready systems.",
+      title: "MEAL & Field Systems",
+      text: "CommCare mobile data collection, humanitarian monitoring & evaluation and analytical reporting.",
     },
   ],
 };
@@ -71,39 +72,48 @@ export type ExperienceEn = {
 
 export const experiencesEn: ExperienceEn[] = [
   {
-    company: "Welthungerhilfe (WHH)",
-    role: "Internship — Database Manager",
-    period: "2024",
+    company: "Videeko Vanilla – Vintsy Cooperative",
+    role: "Full Stack Developer",
+    period: "March – September 2026",
     description:
-      "Contributed to the development of humanitarian aid program monitoring tools. Created management interfaces and reports for beneficiary tracking.",
-    technologies: ["React", "Next.js", "Laravel"],
+      "Design and implementation of an intelligent agricultural platform for collecting, managing and tracking field data for the Vintsy cooperative.",
+    technologies: ["Excel", "React Native", "Next.js", "Django", "PostgreSQL"],
+    accent: "#ffb400",
+  },
+  {
+    company: "MEAL Department, WHH Madagascar",
+    role: "Database Management Intern",
+    period: "June – December 2025",
+    description:
+      "Contributed to humanitarian aid program monitoring solutions: management interfaces and reporting tools for beneficiary tracking.",
+    technologies: ["CommCare", "Excel", "Next.js", "Django", "PostgreSQL"],
     accent: "#f97316",
   },
   {
-    company: "Ministry of Higher Education",
-    role: "Internship — Developer",
-    period: "2023",
+    company: "MESUPRES (Ministry of Higher Education)",
+    role: "Intern – DSI Department",
+    period: "2024",
     description:
-      "Developed a staff time-tracking management system. Implemented a complete attendance tracking solution with admin interface and automated reports.",
-    technologies: ["Vue.js", "Laravel", "MySQL"],
+      "Developed a staff attendance tracking system: complete presence monitoring solution with admin dashboard and automated reports.",
+    technologies: ["React", "Next.js", "Laravel", "PostgreSQL"],
     accent: "#1e40af",
   },
   {
-    company: "Conservation International Madagascar",
-    role: "Contractor",
+    company: "Conservation International, Fianarantsoa",
+    role: "Contractor – Database Management",
     period: "2023",
     description:
-      "Support in developing environmental databases. Designed data management systems for biodiversity conservation and implemented monitoring and environmental indicator analysis tools.",
-    technologies: ["Database", "Data analysis", "Data processing"],
+      "Supported building, processing and cleaning beneficiary databases. Designed data management systems for biodiversity conservation projects and tracking tools.",
+    technologies: ["Excel", "SQL", "Python"],
     accent: "#10b981",
   },
   {
-    company: "Cisco Midingy Atsimo",
-    role: "Internship — Developer",
-    period: "2022",
+    company: "CISCO Midongy Atsimo",
+    role: "Software Developer Intern",
+    period: "2023",
     description:
-      "Developed a school kit distribution management application. Designed and implemented a complete tracking and management system for educational kits.",
-    technologies: ["Vue.js", "Laravel", "MySQL"],
+      "Designed and developed a school kit distribution management application with complete tracking and monitoring.",
+    technologies: ["React", "Django", "MySQL"],
     accent: "#4f46e5",
   },
 ];
@@ -112,6 +122,7 @@ export type EducationEn = {
   school: string;
   logo: string;
   degree: string;
+  period: string;
   field: string;
   description: string;
   skills: string[];
@@ -119,45 +130,74 @@ export type EducationEn = {
 
 export const educationEn: EducationEn[] = [
   {
-    school: "National School of Computer Science",
+    school: "ENI — University of Fianarantsoa",
     logo: "/images/logo-eni.png",
-    degree: "Bachelor's Degree in Computer Science",
-    field: "Software Engineering and Database Track",
-    description: "Fundamental training in software engineering and information systems.",
+    degree: "Master 2 in Computer Science",
+    period: "2025 – 2026",
+    field: "Data Governance & Data Engineering Track",
+    description:
+      "Advanced graduate studies in data governance, data engineering and large-scale information system architecture.",
     skills: [
+      "Data governance & architecture",
+      "Complex information systems engineering",
+      "Data visualization & reporting (Power BI)",
+      "Project planning & logical framework",
+    ],
+  },
+  {
+    school: "ENI — University of Fianarantsoa",
+    logo: "/images/logo-eni.png",
+    degree: "Bachelor's in Computer Science",
+    period: "2024 – 2025",
+    field: "Software Engineering & Databases Track",
+    description:
+      "Core academic training in software engineering, web/mobile architecture and relational database design.",
+    skills: [
+      "MERISE & 2TUP modeling",
       "Web and mobile application development",
-      "Database design and management",
-      "Software architecture and design patterns",
+      "PostgreSQL / MySQL administration",
       "Agile development methodologies",
-      "IT project management",
     ],
   },
   {
     school: "Dimagi Academy",
     logo: "/images/logo-dimagi.png",
     degree: "Certificate — CommCare Fundamentals",
-    field: "Mobile application development",
+    period: "Certification",
+    field: "Mobile Data Collection (MEAL)",
     description:
-      "Training and certification in mobile application development with CommCare for data collection and program management.",
+      "Certification in CommCare mobile app development for humanitarian Monitoring & Evaluation and field data collection.",
     skills: [
-      "CommCare application development",
-      "Mobile data collection and management",
-      "User interface design for humanitarian applications",
-      "Complex workflow integration",
-      "Data analysis and reporting",
+      "CommCare mobile applications",
+      "Beneficiary tracking & field surveys",
+      "MEAL workflow integration",
     ],
   },
   {
     school: "UniAthena",
     logo: "/images/logo-uniathena.PNG",
     degree: "SQL Certificate",
-    field: "Database",
-    description: "Professional certification in SQL and relational database design.",
+    period: "Certification",
+    field: "Relational Databases",
+    description:
+      "Professional certification in advanced SQL querying and relational database architecture.",
     skills: [
-      "SQL queries and optimization",
-      "Relational database design",
-      "Data modeling",
-      "Database administration",
+      "Complex SQL queries & optimization",
+      "Relational modeling",
+      "Data cleaning & integrity",
+    ],
+  },
+  {
+    school: "High School",
+    logo: "/images/logo-eni.png",
+    degree: "Baccalauréat",
+    period: "2018 – 2019",
+    field: "Science Track",
+    description: "Secondary school diploma specializing in mathematics and physical sciences.",
+    skills: [
+      "Mathematics & formal logic",
+      "Analytical reasoning",
+      "Physical sciences",
     ],
   },
 ];
@@ -173,20 +213,29 @@ export type ProjectEn = {
 
 export const projectsEn: ProjectEn[] = [
   {
+    title: "Videeko Vanilla — Agricultural Platform",
+    client: "Vintsy Cooperative (Mar – Sep 2026)",
+    description:
+      "Design and implementation of a smart agricultural platform for field data collection, inventory and producer tracking for the Vintsy cooperative.",
+    technologies: ["Next.js", "React Native", "Django", "PostgreSQL", "Excel"],
+    github: "https://github.com/Misaina23/videeko",
+    demo: "https://videeko-vanilla.vercel.app",
+  },
+  {
     title: "REKOMA Association Platform",
     client: "REKOMA Association",
     description:
-      "Integrated community portal featuring member & membership management, public vitrine site, online store for solidarity accessories, and association project tracking.",
+      "Integrated community portal featuring member & membership management, public vitrine site, online store for solidarity accessories, and project tracking.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL"],
     github: "https://github.com/Misaina23/rekoma",
     demo: "https://rekoma-318.vercel.app",
   },
   {
-    title: "Staff Time-Tracking Management",
-    client: "Ministry of Higher Education",
+    title: "Staff Attendance Management System",
+    client: "MESUPRES — DSI Department (2024)",
     description:
-      "Staff time-tracking management system with attendance monitoring, admin interface and automated timesheet reports.",
-    technologies: ["Vue.js", "Laravel", "MySQL"],
+      "Staff attendance tracking system with administrative dashboard, timestamping and automated timesheet reports.",
+    technologies: ["React", "Next.js", "Laravel", "PostgreSQL"],
     github: "https://github.com/Misaina23/pointage",
     demo: "https://pointagemisaina.vercel.app",
   },
@@ -200,31 +249,20 @@ export const projectsEn: ProjectEn[] = [
     demo: "https://lycceemidongysud.vercel.app/",
   },
   {
-    title: "Agricultural Management Platform",
-    client: "Agricultural Cooperative (Videeko)",
+    title: "Humanitarian Aid Monitoring (MEAL)",
+    client: "WHH Madagascar (Jun – Dec 2025)",
     description:
-      "Agricultural distribution management application with field data collection, seed inventory, and parcel mapping.",
-    technologies: ["Next.js", "Django", "PostgreSQL"],
-    github: "https://github.com/Misaina23/videeko",
-    demo: "https://videeko-vanilla.vercel.app",
+      "Monitoring and evaluation solutions for humanitarian aid programs: management interfaces, CommCare data collection and beneficiary reporting.",
+    technologies: ["CommCare", "Next.js", "Django", "PostgreSQL", "Excel"],
+    github: "https://github.com/Misaina23",
   },
   {
-    title: "Humanitarian Aid Tracking",
-    client: "Welthungerhilfe (WHH)",
+    title: "School Kit Distribution Management",
+    client: "CISCO Midongy Atsimo (2023)",
     description:
-      "Platform for tracking and coordinating humanitarian aid actions with beneficiary reporting and KPI dashboards.",
-    technologies: ["React", "Next.js", "Laravel", "MySQL"],
+      "School kit distribution tracking application with complete logistics monitoring and reporting.",
+    technologies: ["React", "Django", "MySQL"],
     github: "https://github.com/Misaina23",
-    demo: "https://pointagemisaina.vercel.app",
-  },
-  {
-    title: "Equipment & Stock Management",
-    client: "Personnel Contract Management",
-    description:
-      "Equipment and stock management system linked to personnel contracts with history and inventory alerts.",
-    technologies: ["React", "Next.js", "Laravel", "MySQL"],
-    github: "https://github.com/Misaina23",
-    demo: "https://rekoma-318.vercel.app",
   },
 ];
 
@@ -328,7 +366,6 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     categories: ["Mobile"],
     icon: FaMobileScreen,
     github: "https://github.com/Misaina23",
-    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Airline Ticket Booking",
@@ -345,7 +382,6 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     categories: ["Mobile"],
     icon: FaPlane,
     github: "https://github.com/Misaina23",
-    demo: "https://rekoma-318.vercel.app",
   },
   {
     title: "Restaurant Reservation",
@@ -361,8 +397,7 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     ],
     categories: ["Web", "Data Management"],
     icon: FaUtensils,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
   },
   {
     title: "Intelligent Police Investigation App",
@@ -379,8 +414,7 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     ],
     categories: ["Full Stack"],
     icon: FaMagnifyingGlass,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Misaina23",
   },
 ];
 
@@ -637,7 +671,7 @@ const fr: TranslationKeys = {
     socialTitle: "Réseaux sociaux",
   },
   footer: {
-    description: "Développeur Full Stack Junior passionné, créant des solutions innovantes pour vos projets web et mobiles.",
+    description: "Développeur web & concepteur de bases de données (Master 2 Informatique), spécialisé en architectures full stack et systèmes MEAL.",
   },
 };
 
@@ -747,7 +781,7 @@ const en: TranslationKeys = {
     socialTitle: "Social media",
   },
   footer: {
-    description: "Passionate junior Full Stack developer, creating innovative solutions for your web and mobile projects.",
+    description: "Web Developer & Database Designer (Master 2 Computer Science), specialized in full-stack architectures and MEAL information systems.",
   },
 };
 

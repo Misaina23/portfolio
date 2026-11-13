@@ -14,37 +14,49 @@ export function Projects() {
   const { locale } = useLanguage();
   const [filter, setFilter] = useState<CategoryFilter>("all");
 
-  // Merge and enrich projects cleanly without duplicate sections
   const allProjectsList = [
     {
-      title: "Plateforme Association REKOMA",
-      client: "Association REKOMA (Commerce & Communauté)",
+      title: "Videeko Vanilla — Coopérative Vintsy",
+      client: locale === "fr" ? "Coopérative Vintsy (mars – sept. 2026)" : "Vintsy Cooperative (Mar – Sep 2026)",
       description: locale === "fr"
-        ? "Solution intégrée de gestion communautaire comprenant la gestion des membres & adhésions, un site public vitrine, une boutique de vente d'accessoires solidaires, et le suivi des projets sur le terrain."
+        ? "Plateforme agricole intelligente de collecte, de gestion et de suivi des données de production, des producteurs et des parcelles pour la coopérative Vintsy."
+        : "Intelligent agricultural platform for collecting, managing and monitoring producer, harvest and parcel data for the Vintsy cooperative.",
+      technologies: ["Next.js", "React Native", "Django", "PostgreSQL", "Excel"],
+      demo: "https://videeko-vanilla.vercel.app",
+      github: "https://github.com/Misaina23/videeko",
+      category: "data",
+      featured: false,
+      highlight: locale === "fr" ? "Plateforme Agricole · 2026" : "AgriTech Platform · 2026",
+    },
+    {
+      title: "Plateforme Association REKOMA",
+      client: locale === "fr" ? "Association REKOMA (Commerce & Communauté)" : "REKOMA Association (Community & Store)",
+      description: locale === "fr"
+        ? "Solution intégrée de gestion communautaire comprenant la gestion des membres & adhésions, un site public vitrine, une boutique de vente d'accessoires solidaires et le suivi des projets."
         : "Complete community platform featuring member management, public showcase site, solidarity accessories store, and project impact monitoring.",
       technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL"],
       demo: "https://rekoma-318.vercel.app",
       github: "https://github.com/Misaina23/rekoma",
       category: "web",
       featured: true,
-      highlight: "Plateforme Phare & Commerce Solidaire",
+      highlight: locale === "fr" ? "Plateforme Phare" : "Featured Platform",
     },
     {
       title: "Gestion de Pointage Personnel",
-      client: "Ministère de l'Enseignement Supérieur",
+      client: "MESUPRES — Département DSI (2024)",
       description: locale === "fr"
-        ? "Système complet de pointage et suivi de présence du personnel avec interface d'administration, horodatage en direct et fiches de pointage automatisées."
+        ? "Système complet de suivi des présences du personnel avec tableau de bord administratif, horodatage en direct et génération de rapports automatisés."
         : "Staff attendance tracking system with administrative dashboard, automated reports and daily timesheet monitoring.",
-      technologies: ["Vue.js", "Laravel", "MySQL"],
+      technologies: ["React", "Next.js", "Laravel", "PostgreSQL"],
       demo: "https://pointagemisaina.vercel.app",
       github: "https://github.com/Misaina23/pointage",
       category: "web",
       featured: false,
-      highlight: "Déploiement Ministère",
+      highlight: "Déploiement MESUPRES",
     },
     {
       title: "Gestion de Lycée (Lycée Midongy)",
-      client: "Établissement Scolaire Midongy",
+      client: "Établissement Scolaire Midongy Sud",
       description: locale === "fr"
         ? "Portail scolaire complet : inscription des élèves, gestion des classes, attribution des matières, saisie des notes, calcul des moyennes et génération des bulletins."
         : "School management platform: enrollment, class allocation, subject scheduling, grading, and automated report card generation.",
@@ -56,30 +68,52 @@ export function Projects() {
       highlight: "Plateforme Scolaire",
     },
     {
-      title: "Plateforme Agricole & Semences",
-      client: "Coopérative agricole (Videeko)",
+      title: "Suivi Programmes Humanitaires (MEAL)",
+      client: "WHH Madagascar — Département MEAL (2025)",
       description: locale === "fr"
-        ? "Application de gestion et suivi de la distribution de semences agricoles, inventaire des stocks, traçabilité des parcelles et cartographie statistique."
-        : "Agricultural seed distribution tracking system with inventory control, field parcel mapping, and yield statistics.",
-      technologies: ["Next.js", "Django", "PostgreSQL"],
-      demo: "https://videeko-vanilla.vercel.app",
-      github: "https://github.com/Misaina23/videeko",
+        ? "Solutions de suivi-évaluation des programmes d'aide humanitaire : collecte mobile CommCare, interfaces de gestion et outils de reporting pour le suivi des bénéficiaires."
+        : "Monitoring and evaluation solutions for humanitarian aid programs: CommCare mobile collection, management interfaces and beneficiary reporting.",
+      technologies: ["CommCare", "Next.js", "Django", "PostgreSQL", "Excel"],
+      github: "https://github.com/Misaina23",
       category: "data",
       featured: false,
-      highlight: "Plateforme Agricole",
+      highlight: "MEAL & Humanitaire",
     },
     {
-      title: "Suivi des Programmes Humanitaires",
-      client: "Welthungerhilfe (WHH)",
+      title: "Distribution de Kits Scolaires",
+      client: "CISCO Midongy Atsimo (2023)",
       description: locale === "fr"
-        ? "Outils d'analyse et de reporting pour le suivi des programmes d'aide humanitaire et la gestion des bénéficiaires sur le terrain."
-        : "Monitoring and coordination platform for humanitarian aid programs with beneficiary reporting.",
-      technologies: ["React", "Next.js", "Laravel", "MySQL"],
-      demo: "https://pointagemisaina.vercel.app",
+        ? "Application de gestion de la distribution de kits scolaires avec système complet de suivi logistique, traçabilité des dotations et pilotage."
+        : "School kit distribution management application with complete logistics tracking and reporting.",
+      technologies: ["React", "Django", "MySQL"],
       github: "https://github.com/Misaina23",
       category: "web",
       featured: false,
-      highlight: "ONG Humanitaire",
+      highlight: "Application Éducative",
+    },
+    {
+      title: "Bases de Données Biodiversité",
+      client: "Conservation International, Fianarantsoa (2023)",
+      description: locale === "fr"
+        ? "Construction, traitement et nettoyage des bases de données de bénéficiaires et conception de systèmes de suivi pour des projets de conservation de la biodiversité."
+        : "Design, processing and cleaning of beneficiary databases and monitoring systems for biodiversity conservation projects.",
+      technologies: ["SQL", "Python", "Excel", "Power BI"],
+      github: "https://github.com/Misaina23",
+      category: "data",
+      featured: false,
+      highlight: "Data & Conservation",
+    },
+    {
+      title: "Application de Suivi de Dépenses",
+      client: "Projet Mobile Personnel (Expense Tracker)",
+      description: locale === "fr"
+        ? "Application mobile développée avec Flutter et Dart permettant le suivi en temps réel des dépenses, la catégorisation budgétaire et le calcul des soldes mensuels."
+        : "Mobile expense tracker built with Flutter and Dart for daily financial monitoring and budget categorization.",
+      technologies: ["Flutter", "Dart", "SQLite"],
+      github: "https://github.com/Misaina23",
+      category: "mobile",
+      featured: false,
+      highlight: "Mobile Flutter",
     },
     {
       title: "Enquête Policière Intelligente",
@@ -88,42 +122,16 @@ export function Projects() {
         ? "Système expert basé sur la programmation logique (Prolog) et TypeScript simulant une enquête criminelle : gestion des indices, déduction de faits et scénarios."
         : "Expert system simulation for criminal investigation using logic programming (Prolog rules) and TypeScript interface.",
       technologies: ["Prolog", "TypeScript", "Programmation logique"],
-      demo: "https://rekoma-318.vercel.app",
       github: "https://github.com/Misaina23",
       category: "data",
       featured: false,
       highlight: "Système Expert IA",
     },
-    {
-      title: "Application de Suivi de Dépenses",
-      client: "Projet Mobile Personnel (Expense Tracker)",
-      description: locale === "fr"
-        ? "Application mobile développée avec Flutter permettant le suivi en temps réel des dépenses, la catégorisation budgétaire et le calcul des soldes mensuels."
-        : "Mobile expense tracker built with Flutter for daily financial monitoring and budget categorization.",
-      technologies: ["Flutter", "Dart", "SQLite"],
-      demo: "https://pointagemisaina.vercel.app",
-      github: "https://github.com/Misaina23",
-      category: "mobile",
-      featured: false,
-      highlight: "Mobile Flutter",
-    },
-    {
-      title: "Gestion de Billets d'Avion",
-      client: "Application Mobile Voyageurs",
-      description: locale === "fr"
-        ? "Application mobile React Native de recherche de vols, sélection de sièges, gestion des réservations et émission de billets électroniques."
-        : "React Native mobile app for airline ticket booking, flight search, passenger records, and boarding management.",
-      technologies: ["React Native", "TypeScript"],
-      demo: "https://rekoma-318.vercel.app",
-      github: "https://github.com/Misaina23",
-      category: "mobile",
-      featured: false,
-      highlight: "Mobile React Native",
-    },
   ];
 
+  // Never repeat the featured REKOMA showcase inside the "all" grid; show it only when filtering by "web"
   const filteredProjects = filter === "all"
-    ? allProjectsList
+    ? allProjectsList.filter((p) => !p.featured)
     : allProjectsList.filter((p) => p.category === filter);
 
   return (
@@ -132,7 +140,11 @@ export function Projects() {
         <SectionHeading
           eyebrow={locale === "fr" ? "Réalisations" : "Portfolio"}
           title={locale === "fr" ? "Mon portfolio" : "My portfolio"}
-          subtitle={locale === "fr" ? "Sélection de projets web, mobiles et systèmes d'information déployés en production." : "Selection of live deployed web, mobile and software engineering projects."}
+          subtitle={
+            locale === "fr"
+              ? "Sélection de projets web, mobiles et systèmes d'information déployés en production."
+              : "Selection of live deployed web, mobile and software engineering projects."
+          }
         />
 
         {/* Sliim Filter Buttons */}
@@ -158,7 +170,7 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Featured Project Showcase: REKOMA Association */}
+        {/* Featured Project Showcase: REKOMA Association (shown exclusively in "all" view, omitted from grid below) */}
         {filter === "all" && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -289,7 +301,7 @@ export function Projects() {
                   <span className="font-semibold text-primary uppercase tracking-wider text-[11px]">
                     {project.highlight}
                   </span>
-                  {project.demo && project.demo.includes("vercel.app") && (
+                  {project.demo && project.demo !== "#" && (
                     <span className="inline-flex items-center gap-1 text-[10px] text-emerald-500 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-xs">
                       ● Live
                     </span>
@@ -309,12 +321,12 @@ export function Projects() {
                   </p>
 
                   <div className="mt-5 flex flex-wrap gap-1.5 pt-3 border-t border-border/60">
-                    {project.technologies.map((t) => (
+                    {project.technologies.map((tech) => (
                       <span
-                        key={t}
+                        key={tech}
                         className="font-mono text-[10px] font-semibold text-foreground bg-muted/60 px-2 py-0.5 rounded-xs border border-border/70"
                       >
-                        {t}
+                        {tech}
                       </span>
                     ))}
                   </div>
@@ -328,10 +340,10 @@ export function Projects() {
                         className="sliim-btn inline-flex flex-1 items-center justify-center gap-1.5 border border-border bg-card px-3 py-2.5 text-xs text-foreground transition-all hover:border-primary hover:text-primary"
                       >
                         <FaGithub className="h-3.5 w-3.5" />
-                        <span>Code</span>
+                        <span>GitHub</span>
                       </a>
                     )}
-                    {project.demo && (
+                    {project.demo && project.demo !== "#" && (
                       <a
                         href={project.demo}
                         target="_blank"

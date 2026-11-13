@@ -20,28 +20,31 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://devmisaina.vercel.app";
+const siteUrl = "https://portfolio-devmisaina.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profile.fullName} — ${profile.title}`,
-    template: `%s | ${profile.fullName}`,
+    default: `${profile.displayName} — ${profile.fullName} | ${profile.title}`,
+    template: `%s | ${profile.displayName}`,
   },
   description: profile.tagline,
   applicationName: "DevMisaina Portfolio",
   authors: [{ name: profile.fullName }],
   creator: profile.fullName,
   keywords: [
-    "Développeur Full Stack",
+    "ANDRIANISAINA Nanga Miaramanana",
+    "DevMisaina",
+    "Développeur web",
+    "Concepteur de bases de données",
     "Next.js",
     "React",
     "Vue.js",
     "Laravel",
     "Django",
-    "Flutter",
-    "React Native",
-    "Portfolio",
+    "PostgreSQL",
+    "MEAL",
+    "CommCare",
     "Madagascar",
   ],
   alternates: { canonical: "/" },
@@ -50,12 +53,12 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: siteUrl,
     siteName: "DevMisaina",
-    title: `${profile.fullName} — ${profile.title}`,
+    title: `${profile.displayName} — ${profile.fullName}`,
     description: profile.tagline,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.fullName} — ${profile.title}`,
+    title: `${profile.displayName} — ${profile.fullName}`,
     description: profile.tagline,
   },
   robots: { index: true, follow: true },

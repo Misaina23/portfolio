@@ -11,25 +11,27 @@ import {
   CheckCircle2 
 } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
-import { profile, experiences, education } from "@/lib/data";
-import { useLanguage, useT } from "@/lib/i18n";
+import { profile } from "@/lib/data";
+import { useExperiences, useEducation, useLanguage, useT } from "@/lib/i18n";
 import { EASE } from "@/lib/motion";
 
 export function About() {
   const { locale } = useLanguage();
+  const experiences = useExperiences();
+  const education = useEducation();
   const t = useT();
   const [activeTab, setActiveTab] = useState<"all" | "experience" | "education">("all");
-  const cvHref = locale === "fr" ? "/documents/sainacv.PDF" : "/documents/ResumeSaina.pdf";
+  const cvHref = profile.cv;
 
   const personalInfo = [
-    { label: locale === "fr" ? "Identité" : "Identity", value: "DevMisaina" },
-    { label: locale === "fr" ? "Rôle" : "Role", value: locale === "fr" ? "Développeur Full Stack" : "Full Stack Developer" },
-    { label: locale === "fr" ? "Nationalité" : "Nationality", value: "Malagasy" },
-    { label: locale === "fr" ? "Diplôme" : "Degree", value: "BAC+3 Génie Logiciel (ENI)" },
+    { label: locale === "fr" ? "Nom complet" : "Full Name", value: profile.fullName },
+    { label: locale === "fr" ? "Identifiant" : "Handle", value: "DevMisaina" },
+    { label: locale === "fr" ? "Formation" : "Degree", value: "Master 2 Informatique (ENI)" },
     { label: locale === "fr" ? "Téléphone" : "Phone", value: profile.phone },
     { label: locale === "fr" ? "Email" : "Email", value: profile.email },
-    { label: locale === "fr" ? "Localisation" : "Location", value: profile.location },
-    { label: locale === "fr" ? "Langues" : "Languages", value: locale === "fr" ? "Français, Anglais, Malagasy" : "French, English, Malagasy" },
+    { label: locale === "fr" ? "Adresse" : "Address", value: profile.location },
+    { label: locale === "fr" ? "Langues" : "Languages", value: locale === "fr" ? "Malagasy, Français, Anglais" : "Malagasy, French, English" },
+    { label: locale === "fr" ? "Intérêts" : "Interests", value: locale === "fr" ? "Football, Films, Internet" : "Football, Movies, Internet" },
   ];
 
   return (
@@ -93,13 +95,15 @@ export function About() {
             className="lg:col-span-7 space-y-6"
           >
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground font-display">
-              {locale === "fr" ? "Développeur Full Stack Web & Mobile" : "Full Stack Web & Mobile Developer"}
+              {locale === "fr"
+                ? "Développeur web & concepteur de bases de données"
+                : "Web Developer & Database Designer"}
             </h3>
 
             <p className="text-sm sm:text-base leading-relaxed text-muted-foreground font-mono">
               {locale === "fr"
-                ? "Diplômé de l'École Nationale d'Informatique (ENI) de Fianarantsoa en Génie Logiciel et Base de Données, je conçois des plateformes web scalables et des applications mobiles adaptées aux exigences réelles du terrain. Spécialisé dans React, Next.js, Vue.js, Laravel et Django, j'associe rigueur algorithmique et ergonomie soignée."
-                : "Graduate of the National School of Computer Science (ENI) in Software Engineering & Databases. I build scalable web platforms and robust mobile applications tailored to real-world demands using modern full-stack architectures."}
+                ? "Passionné par l'architecture logicielle, le développement web moderne et la conception de bases de données relationnelles complexes. Licencié en informatique (ENI) et actuellement en Master 2 Gouvernance et Ingénierie de Données, je conçois des solutions robustes et évolutives avec une solide expérience en suivi-évaluation (MEAL) et systèmes d'information humanitaires."
+                : "Passionate about software architecture, modern web development and complex relational database design. B.Sc. graduate from ENI and currently pursuing a Master 2 in Data Governance & Engineering, I build robust, scalable solutions with solid experience in Monitoring & Evaluation (MEAL) and humanitarian information systems."}
             </p>
 
             {/* 2-Column Personal Details Grid */}
@@ -263,7 +267,7 @@ export function About() {
                     >
                       <div className="flex items-center justify-between gap-2">
                         <span className="font-mono text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-sm">
-                          {edu.degree}
+                          {edu.period}
                         </span>
                         <span className="font-mono text-[11px] text-muted-foreground font-semibold uppercase truncate">
                           {edu.school}
@@ -271,8 +275,11 @@ export function About() {
                       </div>
 
                       <h4 className="mt-3 text-base font-bold text-foreground font-display">
-                        {edu.field}
+                        {edu.degree}
                       </h4>
+                      <p className="mt-0.5 text-xs font-mono font-semibold text-primary">
+                        {edu.field}
+                      </p>
 
                       <p className="mt-2 text-xs leading-relaxed text-muted-foreground font-mono">
                         {edu.description}

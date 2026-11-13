@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Mail, MapPin, Phone, Send, CheckCircle2 } from "lucide-react";
-import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import { SectionHeading } from "./SectionHeading";
@@ -152,13 +152,13 @@ export function Contact() {
                     <FaGithub className="h-4 w-4" />
                   </a>
                   <a
-                    href={profile.socials.twitter}
+                    href={profile.socials.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Twitter"
+                    aria-label="Facebook"
                     className="grid h-9 w-9 place-items-center rounded-xs border border-border bg-muted/40 text-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5"
                   >
-                    <FaXTwitter className="h-4 w-4" />
+                    <FaFacebook className="h-4 w-4" />
                   </a>
                 </div>
               </div>
