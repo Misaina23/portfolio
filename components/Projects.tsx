@@ -60,7 +60,7 @@ export function Projects() {
       description: locale === "fr"
         ? "Portail scolaire complet : inscription des élèves, gestion des classes, attribution des matières, saisie des notes, calcul des moyennes et génération des bulletins."
         : "School management platform: enrollment, class allocation, subject scheduling, grading, and automated report card generation.",
-      technologies: ["Vue.js", "Symfony", "MySQL"],
+      technologies: ["Next.js", "Django", "PostgreSQL"],
       demo: "https://lycceemidongysud.vercel.app/",
       github: "https://github.com/Misaina23/lycee-midongy",
       category: "web",

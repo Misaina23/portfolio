@@ -187,13 +187,27 @@ export const education: Education[] = [
     logo: "/images/logo-dimagi.png",
     degree: "Certificat — CommCare Fondamentale",
     period: "Certification",
-    field: "Collecte de données mobile (MEAL)",
+    field: "Fondamentaux CommCare & Collecte Mobile",
     description:
-      "Certification en développement d'applications mobiles CommCare pour le suivi-évaluation humanitaire et la collecte terrain.",
+      "Certification sur les principes fondamentaux de CommCare pour la collecte de données terrain et le suivi-évaluation (MEAL).",
     skills: [
-      "Applications mobiles CommCare",
-      "Collecte et suivi des bénéficiaires",
-      "Workflows de suivi-évaluation (MEAL)",
+      "Architecture et formulaires CommCare",
+      "Collecte mobile et gestion des cas",
+      "Suivi des bénéficiaires sur le terrain",
+    ],
+  },
+  {
+    school: "Dimagi Academy",
+    logo: "/images/logo-dimagi.png",
+    degree: "Certificat — CommCare Développement d'Application",
+    period: "Certification",
+    field: "Conception d'applications mobiles CommCare",
+    description:
+      "Certification avancée en conception, logique conditionnelle, workflows complexes et déploiement d'applications CommCare.",
+    skills: [
+      "Développement d'applications CommCare",
+      "Logique avancée & case management",
+      "Workflows MEAL et reporting terrain",
     ],
   },
   {
@@ -325,7 +339,7 @@ export const projects: Project[] = [
     client: "Lycée Midongy Sud",
     description:
       "Plateforme scolaire intégrée : inscription des élèves, gestion des classes, emploi du temps, saisie des notes et bulletins automatisés.",
-    technologies: ["Vue.js", "Symfony", "MySQL"],
+    technologies: ["Next.js", "Django", "PostgreSQL"],
     github: "https://github.com/Misaina23/lycee-midongy",
     demo: "https://lycceemidongysud.vercel.app/",
   },
@@ -418,7 +432,7 @@ export const academicProjects: AcademicProject[] = [
     context: "Établissement scolaire Midongy Sud",
     description:
       "Application complète de gestion scolaire : inscriptions, gestion des classes, matières, saisie des notes et bulletins automatisés.",
-    technologies: ["Vue.js", "Symfony", "MySQL"],
+    technologies: ["Next.js", "Django", "PostgreSQL"],
     features: [
       "Inscription et gestion des classes",
       "Gestion des matières et enseignants",

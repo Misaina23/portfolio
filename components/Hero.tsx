@@ -11,7 +11,7 @@ const deployedApps = [
   { name: "Videeko Vanilla", url: "https://videeko-vanilla.vercel.app", stack: "Next.js · Django · RN" },
   { name: "REKOMA Association", url: "https://rekoma-318.vercel.app", stack: "Next.js · PostgreSQL" },
   { name: "Pointage MESUPRES", url: "https://pointagemisaina.vercel.app", stack: "React · Laravel · PgSQL" },
-  { name: "Lycée Midongy", url: "https://lycceemidongysud.vercel.app/", stack: "Vue.js · Symfony · MySQL" },
+  { name: "Lycée Midongy", url: "https://lycceemidongysud.vercel.app/", stack: "Next.js · Django · PgSQL" },
 ];
 
 export function Hero() {

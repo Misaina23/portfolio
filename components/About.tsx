@@ -176,15 +176,6 @@ export function About() {
               </button>
               <button
                 type="button"
-                onClick={() => setActiveTab("experience")}
-                className={`px-4 py-1.5 transition-colors uppercase font-semibold ${
-                  activeTab === "experience" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {locale === "fr" ? "Expérience" : "Experience"}
-              </button>
-              <button
-                type="button"
                 onClick={() => setActiveTab("education")}
                 className={`px-4 py-1.5 transition-colors uppercase font-semibold ${
                   activeTab === "education" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
@@ -192,62 +183,20 @@ export function About() {
               >
                 {locale === "fr" ? "Formation" : "Education"}
               </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("experience")}
+                className={`px-4 py-1.5 transition-colors uppercase font-semibold ${
+                  activeTab === "experience" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {locale === "fr" ? "Expérience" : "Experience"}
+              </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Experience Column */}
-            {(activeTab === "all" || activeTab === "experience") && (
-              <div className="space-y-6">
-                <div className="flex items-center gap-2.5 pb-3 border-b border-border text-foreground font-mono font-bold text-sm uppercase tracking-wider">
-                  <Briefcase className="h-4 w-4 text-primary" />
-                  <span>{locale === "fr" ? "Expériences Professionnelles" : "Professional Experience"}</span>
-                </div>
-
-                <div className="space-y-5">
-                  {experiences.map((exp, i) => (
-                    <motion.div
-                      key={exp.company + exp.period}
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{ duration: 0.4, delay: i * 0.08, ease: EASE }}
-                      className="rounded-lg border border-border bg-card p-5 shadow-xs transition-all hover:border-primary/60"
-                    >
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="font-mono text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-sm">
-                          {exp.period}
-                        </span>
-                        <span className="font-mono text-[11px] text-muted-foreground font-semibold uppercase truncate">
-                          {exp.company}
-                        </span>
-                      </div>
-
-                      <h4 className="mt-3 text-base font-bold text-foreground font-display">
-                        {exp.role}
-                      </h4>
-
-                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground font-mono">
-                        {exp.description}
-                      </p>
-
-                      <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-border/60">
-                        {exp.technologies.map((t) => (
-                          <span
-                            key={t}
-                            className="font-mono text-[10px] font-semibold text-foreground bg-muted/60 px-2 py-0.5 rounded-xs border border-border/80"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Education Column */}
+          <div className="space-y-16">
+            {/* 1. Formation & Certifications FIRST (full-width sequential block) */}
             {(activeTab === "all" || activeTab === "education") && (
               <div className="space-y-6">
                 <div className="flex items-center gap-2.5 pb-3 border-b border-border text-foreground font-mono font-bold text-sm uppercase tracking-wider">
@@ -255,18 +204,18 @@ export function About() {
                   <span>{locale === "fr" ? "Formation & Certifications" : "Education & Certifications"}</span>
                 </div>
 
-                <div className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {education.map((edu, i) => (
                     <motion.div
                       key={edu.school + edu.degree}
                       initial={{ opacity: 0, y: 16 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.2 }}
-                      transition={{ duration: 0.4, delay: i * 0.08, ease: EASE }}
-                      className="rounded-lg border border-border bg-card p-5 shadow-xs transition-all hover:border-primary/60"
+                      transition={{ duration: 0.4, delay: (i % 3) * 0.06, ease: EASE }}
+                      className="flex flex-col rounded-lg border border-border bg-card p-5 shadow-xs transition-all hover:border-primary/60"
                     >
                       <div className="flex items-center justify-between gap-2">
-                        <span className="font-mono text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-sm">
+                        <span className="font-mono text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-sm shrink-0">
                           {edu.period}
                         </span>
                         <span className="font-mono text-[11px] text-muted-foreground font-semibold uppercase truncate">
@@ -281,7 +230,7 @@ export function About() {
                         {edu.field}
                       </p>
 
-                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground font-mono">
+                      <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground font-mono">
                         {edu.description}
                       </p>
 
@@ -293,6 +242,57 @@ export function About() {
                           </li>
                         ))}
                       </ul>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 2. Expériences Professionnelles SECOND (full-width sequential block) */}
+            {(activeTab === "all" || activeTab === "experience") && (
+              <div className="space-y-6">
+                <div className="flex items-center gap-2.5 pb-3 border-b border-border text-foreground font-mono font-bold text-sm uppercase tracking-wider">
+                  <Briefcase className="h-4 w-4 text-primary" />
+                  <span>{locale === "fr" ? "Expériences Professionnelles" : "Professional Experience"}</span>
+                </div>
+
+                <div className="space-y-5 max-w-4xl mx-auto">
+                  {experiences.map((exp, i) => (
+                    <motion.div
+                      key={exp.company + exp.period}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.4, delay: i * 0.06, ease: EASE }}
+                      className="rounded-lg border border-border bg-card p-6 shadow-xs transition-all hover:border-primary/60"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <span className="font-mono text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-sm">
+                          {exp.period}
+                        </span>
+                        <span className="font-mono text-xs text-muted-foreground font-semibold uppercase">
+                          {exp.company}
+                        </span>
+                      </div>
+
+                      <h4 className="mt-3 text-lg font-bold text-foreground font-display">
+                        {exp.role}
+                      </h4>
+
+                      <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground font-mono">
+                        {exp.description}
+                      </p>
+
+                      <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-border/60">
+                        {exp.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="font-mono text-[10px] font-semibold text-foreground bg-muted/60 px-2.5 py-0.5 rounded-xs border border-border/80"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </motion.div>
                   ))}
                 </div>

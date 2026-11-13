@@ -164,13 +164,27 @@ export const educationEn: EducationEn[] = [
     logo: "/images/logo-dimagi.png",
     degree: "Certificate — CommCare Fundamentals",
     period: "Certification",
-    field: "Mobile Data Collection (MEAL)",
+    field: "CommCare Fundamentals & Mobile Collection",
     description:
-      "Certification in CommCare mobile app development for humanitarian Monitoring & Evaluation and field data collection.",
+      "Certification covering CommCare core fundamentals for mobile field data collection and humanitarian Monitoring & Evaluation (MEAL).",
     skills: [
-      "CommCare mobile applications",
-      "Beneficiary tracking & field surveys",
-      "MEAL workflow integration",
+      "CommCare form & app architecture",
+      "Mobile data collection & case management",
+      "Field beneficiary tracking",
+    ],
+  },
+  {
+    school: "Dimagi Academy",
+    logo: "/images/logo-dimagi.png",
+    degree: "Certificate — CommCare Application Development",
+    period: "Certification",
+    field: "CommCare Mobile App Engineering",
+    description:
+      "Advanced certification in designing, configuring conditional logic, complex case-management workflows and deploying CommCare mobile apps.",
+    skills: [
+      "CommCare mobile application development",
+      "Advanced logic & case management",
+      "MEAL workflows & field reporting",
     ],
   },
   {
@@ -244,7 +258,7 @@ export const projectsEn: ProjectEn[] = [
     client: "Midongy High School",
     description:
       "Integrated school platform: student enrollment, class management, scheduling, grade entry, and automated report cards.",
-    technologies: ["Vue.js", "Symfony", "MySQL"],
+    technologies: ["Next.js", "Django", "PostgreSQL"],
     github: "https://github.com/Misaina23/lycee-midongy",
     demo: "https://lycceemidongysud.vercel.app/",
   },
@@ -322,7 +336,7 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     context: "Midongy High School",
     description:
       "Complete student academic tracking application, from enrollment to academic results and automated report cards.",
-    technologies: ["Vue.js", "Symfony", "MySQL"],
+    technologies: ["Next.js", "Django", "PostgreSQL"],
     features: [
       "Class management and enrollment",
       "Subject and teacher management",
