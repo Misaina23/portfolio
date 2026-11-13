@@ -314,7 +314,6 @@ export const projects: Project[] = [
       "Conception et réalisation d'une plateforme agricole intelligente de collecte, de gestion et de suivi des données de production et de parcelles pour la coopérative Vintsy.",
     technologies: ["Next.js", "React Native", "Django", "PostgreSQL", "Excel"],
     github: "https://github.com/Misaina23/videeko",
-    demo: "https://videeko-vanilla.vercel.app",
   },
   {
     title: "Plateforme Association REKOMA",
@@ -332,7 +331,6 @@ export const projects: Project[] = [
       "Solution complète de suivi des présences du personnel avec tableau de bord administratif, horodatage et génération de rapports automatisés.",
     technologies: ["React", "Next.js", "Laravel", "PostgreSQL"],
     github: "https://github.com/Misaina23/pointage",
-    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Gestion de Lycée (Lycée Midongy)",
@@ -391,7 +389,6 @@ export const academicProjects: AcademicProject[] = [
     icon: PiPlantFill,
     featured: true,
     github: "https://github.com/Misaina23/videeko",
-    demo: "https://videeko-vanilla.vercel.app",
   },
   {
     title: "Plateforme Association REKOMA",
@@ -425,7 +422,6 @@ export const academicProjects: AcademicProject[] = [
     categories: ["Web", "Full Stack"],
     icon: FaServer,
     github: "https://github.com/Misaina23/pointage",
-    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Gestion de Lycée (Lycée Midongy)",

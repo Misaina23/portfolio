@@ -8,9 +8,7 @@ import { useLanguage, useT } from "@/lib/i18n";
 import { EASE } from "@/lib/motion";
 
 const deployedApps = [
-  { name: "Videeko Vanilla", url: "https://videeko-vanilla.vercel.app", stack: "Next.js · Django · RN" },
   { name: "REKOMA Association", url: "https://rekoma-318.vercel.app", stack: "Next.js · PostgreSQL" },
-  { name: "Pointage MESUPRES", url: "https://pointagemisaina.vercel.app", stack: "React · Laravel · PgSQL" },
   { name: "Lycée Midongy", url: "https://lycceemidongysud.vercel.app/", stack: "Next.js · Django · PgSQL" },
 ];
 
@@ -100,13 +98,13 @@ export function Hero() {
           </div>
 
           {/* Live Deployed Demos Shortcut Strip */}
-          <div className="mt-12 w-full max-w-3xl rounded-xl border border-border/80 bg-card/75 p-4 backdrop-blur-md shadow-sm">
+          <div className="mt-12 w-full max-w-xl rounded-xl border border-border/80 bg-card/75 p-4 backdrop-blur-md shadow-sm">
             <div className="flex items-center justify-between pb-2 mb-3 border-b border-border/60 text-xs font-mono font-semibold uppercase tracking-wider text-muted-foreground">
               <span>{locale === "fr" ? "Démos en direct" : "Live projects"}</span>
-              <span className="text-primary font-mono text-[11px]">4 Vercel Apps</span>
+              <span className="text-primary font-mono text-[11px]">2 Vercel Apps</span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {deployedApps.map((app) => (
                 <a
                   key={app.name}

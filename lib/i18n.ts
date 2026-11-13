@@ -233,7 +233,6 @@ export const projectsEn: ProjectEn[] = [
       "Design and implementation of a smart agricultural platform for field data collection, inventory and producer tracking for the Vintsy cooperative.",
     technologies: ["Next.js", "React Native", "Django", "PostgreSQL", "Excel"],
     github: "https://github.com/Misaina23/videeko",
-    demo: "https://videeko-vanilla.vercel.app",
   },
   {
     title: "REKOMA Association Platform",
@@ -251,7 +250,6 @@ export const projectsEn: ProjectEn[] = [
       "Staff attendance tracking system with administrative dashboard, timestamping and automated timesheet reports.",
     technologies: ["React", "Next.js", "Laravel", "PostgreSQL"],
     github: "https://github.com/Misaina23/pointage",
-    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "High School Management System",
@@ -329,7 +327,6 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     categories: ["Full Stack", "Data Management"],
     icon: PiPlantFill,
     github: "https://github.com/Misaina23/videeko",
-    demo: "https://videeko-vanilla.vercel.app",
   },
   {
     title: "High School Management System",
@@ -363,7 +360,6 @@ export const academicProjectsEn: AcademicProjectEn[] = [
     categories: ["Web", "Full Stack"],
     icon: FaServer,
     github: "https://github.com/Misaina23/pointage",
-    demo: "https://pointagemisaina.vercel.app",
   },
   {
     title: "Expense Tracker App",

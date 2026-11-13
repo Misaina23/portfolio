@@ -22,7 +22,6 @@ export function Projects() {
         ? "Plateforme agricole intelligente de collecte, de gestion et de suivi des données de production, des producteurs et des parcelles pour la coopérative Vintsy."
         : "Intelligent agricultural platform for collecting, managing and monitoring producer, harvest and parcel data for the Vintsy cooperative.",
       technologies: ["Next.js", "React Native", "Django", "PostgreSQL", "Excel"],
-      demo: "https://videeko-vanilla.vercel.app",
       github: "https://github.com/Misaina23/videeko",
       category: "data",
       featured: false,
@@ -48,7 +47,6 @@ export function Projects() {
         ? "Système complet de suivi des présences du personnel avec tableau de bord administratif, horodatage en direct et génération de rapports automatisés."
         : "Staff attendance tracking system with administrative dashboard, automated reports and daily timesheet monitoring.",
       technologies: ["React", "Next.js", "Laravel", "PostgreSQL"],
-      demo: "https://pointagemisaina.vercel.app",
       github: "https://github.com/Misaina23/pointage",
       category: "web",
       featured: false,
