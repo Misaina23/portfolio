@@ -22,6 +22,9 @@ import {
   SiNodedotjs,
   SiSpringboot,
   SiPython,
+  SiDocker,
+  SiVercel,
+  SiGit,
 } from "react-icons/si";
 import {
   FaMobileScreen,
@@ -48,13 +51,13 @@ export const profile = {
   displayName: "DevMisaina",
   title: "Développeur web & concepteur de bases de données",
   tagline:
-    "Licencié en informatique (ENI, Université de Fianarantsoa), actuellement en Master 2. Plus de 4 ans d'expérience en gestion de données et en développement d'applications web.",
+    "Licencié en informatique (ENI, Université de Fianarantsoa), actuellement en Master 2. Trois ans d'expériences en développement d'applications web et en gestion de données, dans les secteurs humanitaire, agricole et institutionnel.",
   email: "andrianisaina23@gmail.com",
   phone: "+261 34 95 441 74",
   location: "Lot 1112/3N/3306, Fianarantsoa",
   website: "portfolio-devmisaina.vercel.app",
   photo: "/images/saina-real.jpg",
-  cv: "/assets/aistudio/CV_ANDRIANISAINA_Nanga_Miaramanana_15866a6a.pdf",
+  cv: "/assets/aistudio/CV_ANDRIANISAINA_5b17077d.pdf",
   socials: {
     linkedin: "https://www.linkedin.com/in/devmisaina",
     github: "https://github.com/Misaina23",
@@ -100,7 +103,7 @@ export const experiences: Experience[] = [
     period: "mars – septembre 2026",
     description:
       "Conception et réalisation d'une plateforme agricole intelligente de collecte, de gestion et de suivi des données pour la coopérative Vintsy.",
-    technologies: ["Excel", "React Native", "Next.js", "Django", "PostgreSQL"],
+    technologies: ["Excel", "React", "React Native", "Next.js", "Django", "PostgreSQL"],
     accent: "#ffb400",
   },
   {
@@ -261,8 +264,18 @@ export const skillCategories: SkillCategory[] = [
       { name: "Laravel", level: 78, icon: SiLaravel },
       { name: "Django", level: 80, icon: SiDjango },
       { name: "Node.js", level: 72, icon: SiNodedotjs },
-      { name: "ASP.NET", level: 66, icon: SiDotnet },
-      { name: "Spring Boot", level: 65, icon: SiSpringboot },
+      { name: "Spring", level: 55, icon: SiSpringboot },
+      { name: "ASP.NET", level: 50, icon: SiDotnet },
+    ],
+  },
+  {
+    name: "Déploiement & Versioning",
+    icon: SiDocker,
+    skills: [
+      { name: "Git / GitHub", level: 82, icon: SiGit },
+      { name: "Vercel", level: 80, icon: SiVercel },
+      { name: "Docker", level: 68, icon: SiDocker },
+      { name: "API REST", level: 80, icon: SiApache },
     ],
   },
   {
@@ -288,11 +301,11 @@ export const skillCategories: SkillCategory[] = [
     name: "Gestion de projet & Réseaux",
     icon: FaNetworkWired,
     skills: [
-      { name: "Planification de projet", level: 90, icon: FaListCheck },
+      { name: "Planification de projet", level: 85, icon: FaListCheck },
       { name: "Cadre logique", level: 70, icon: FaClipboardCheck },
-      { name: "Configuration réseau", level: 70, icon: FaNetworkWired },
-      { name: "Protocole TCP/IP", level: 70, icon: FaServer },
-      { name: "Gestion de firewall", level: 70, icon: FaShield },
+      { name: "Configuration réseau", level: 65, icon: FaNetworkWired },
+      { name: "Protocole TCP/IP", level: 65, icon: FaServer },
+      { name: "Gestion de firewall", level: 65, icon: FaShield },
     ],
   },
 ];
@@ -308,14 +321,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Videeko Vanilla — Plateforme Agricole",
-    client: "Coopérative Vintsy (mars – sept. 2026)",
-    description:
-      "Conception et réalisation d'une plateforme agricole intelligente de collecte, de gestion et de suivi des données de production et de parcelles pour la coopérative Vintsy.",
-    technologies: ["Next.js", "React Native", "Django", "PostgreSQL", "Excel"],
-    github: "https://github.com/Misaina23/videeko",
-  },
-  {
     title: "Plateforme Association REKOMA",
     client: "Association REKOMA",
     description:
@@ -325,12 +330,28 @@ export const projects: Project[] = [
     demo: "https://rekoma-318.vercel.app",
   },
   {
-    title: "Système de Pointage Personnel",
-    client: "MESUPRES — Département DSI (2024)",
+    title: "TalentMatch",
+    client: "Recrutement & Carrière IA",
     description:
-      "Solution complète de suivi des présences du personnel avec tableau de bord administratif, horodatage et génération de rapports automatisés.",
-    technologies: ["React", "Next.js", "Laravel", "PostgreSQL"],
-    github: "https://github.com/Misaina23/pointage",
+      "Plateforme intelligente de recrutement et de gestion de carrière capable de générer automatiquement un portfolio à partir d'un CV, ou de concevoir un CV optimisé et beaucoup plus pertinent.",
+    technologies: ["React", "Node.js", "PostgreSQL"],
+    github: "https://github.com/Misaina23",
+  },
+  {
+    title: "ImmoSmart — Location Immobilière Intelligente",
+    client: "Gestion Locative & Immobilière",
+    description:
+      "Application intelligente dédiée à la gestion locative et immobilière, automatisant le suivi des biens, des locataires et des réservations.",
+    technologies: ["Next.js", "Laravel", "PostgreSQL"],
+    github: "https://github.com/Misaina23",
+  },
+  {
+    title: "MisainaCognition — Moteur de Connaissance Souverain",
+    client: "Grandes Organisations (SecNumCloud & PSSI)",
+    description:
+      "Fédérez les silos documentaires de votre groupe dans un pipeline certifié BM25 et vecteurs denses. Bénéficiez d'une traçabilité cryptographique des citations et d'une isolation multi-tenant conforme SecNumCloud et PSSI.",
+    technologies: ["Next.js"],
+    github: "https://github.com/Misaina23",
   },
   {
     title: "Gestion de Lycée (Lycée Midongy)",
@@ -347,14 +368,6 @@ export const projects: Project[] = [
     description:
       "Solutions de suivi-évaluation des programmes d'aide humanitaire : interfaces de gestion, collecte mobile CommCare et outils de reporting des bénéficiaires.",
     technologies: ["CommCare", "Next.js", "Django", "PostgreSQL", "Excel"],
-    github: "https://github.com/Misaina23",
-  },
-  {
-    title: "Distribution de Kits Scolaires",
-    client: "CISCO Midongy Atsimo (2023)",
-    description:
-      "Application de gestion de la distribution de kits scolaires avec système complet de suivi, traçabilité et pilotage.",
-    technologies: ["React", "Django", "MySQL"],
     github: "https://github.com/Misaina23",
   },
 ];

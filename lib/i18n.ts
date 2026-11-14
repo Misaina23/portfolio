@@ -25,13 +25,13 @@ export const profileEn = {
   displayName: "DevMisaina",
   title: "Web Developer & Database Designer",
   tagline:
-    "B.Sc. in Computer Science (ENI, University of Fianarantsoa), currently in Master 2. Over 4 years of experience in data management and web application development.",
+    "B.Sc. in Computer Science (ENI, University of Fianarantsoa), currently in Master 2. Three years of experience in web application development and data management across humanitarian, agricultural and institutional sectors.",
   email: "andrianisaina23@gmail.com",
   phone: "+261 34 95 441 74",
   location: "Lot 1112/3N/3306, Fianarantsoa",
   website: "portfolio-devmisaina.vercel.app",
   photo: "/images/saina-real.jpg",
-  cv: "/assets/aistudio/CV_ANDRIANISAINA_Nanga_Miaramanana_15866a6a.pdf",
+  cv: "/assets/aistudio/CV_ANDRIANISAINA_5b17077d.pdf",
   socials: {
     linkedin: "https://www.linkedin.com/in/devmisaina",
     github: "https://github.com/Misaina23",
@@ -77,7 +77,7 @@ export const experiencesEn: ExperienceEn[] = [
     period: "March – September 2026",
     description:
       "Design and implementation of an intelligent agricultural platform for collecting, managing and tracking field data for the Vintsy cooperative.",
-    technologies: ["Excel", "React Native", "Next.js", "Django", "PostgreSQL"],
+    technologies: ["Excel", "React", "React Native", "Next.js", "Django", "PostgreSQL"],
     accent: "#ffb400",
   },
   {
@@ -227,14 +227,6 @@ export type ProjectEn = {
 
 export const projectsEn: ProjectEn[] = [
   {
-    title: "Videeko Vanilla — Agricultural Platform",
-    client: "Vintsy Cooperative (Mar – Sep 2026)",
-    description:
-      "Design and implementation of a smart agricultural platform for field data collection, inventory and producer tracking for the Vintsy cooperative.",
-    technologies: ["Next.js", "React Native", "Django", "PostgreSQL", "Excel"],
-    github: "https://github.com/Misaina23/videeko",
-  },
-  {
     title: "REKOMA Association Platform",
     client: "REKOMA Association",
     description:
@@ -244,12 +236,28 @@ export const projectsEn: ProjectEn[] = [
     demo: "https://rekoma-318.vercel.app",
   },
   {
-    title: "Staff Attendance Management System",
-    client: "MESUPRES — DSI Department (2024)",
+    title: "TalentMatch",
+    client: "AI Recruitment & Career Management",
     description:
-      "Staff attendance tracking system with administrative dashboard, timestamping and automated timesheet reports.",
-    technologies: ["React", "Next.js", "Laravel", "PostgreSQL"],
-    github: "https://github.com/Misaina23/pointage",
+      "Intelligent recruitment and career management platform capable of automatically generating a portfolio from a resume, or designing a sharper, optimized CV.",
+    technologies: ["React", "Node.js", "PostgreSQL"],
+    github: "https://github.com/Misaina23",
+  },
+  {
+    title: "ImmoSmart — Smart Property Rental Management",
+    client: "Real Estate & Rental Automation",
+    description:
+      "Smart real estate and rental management application automating property tracking, tenant administration and reservation workflows.",
+    technologies: ["Next.js", "Laravel", "PostgreSQL"],
+    github: "https://github.com/Misaina23",
+  },
+  {
+    title: "MisainaCognition — Sovereign Knowledge Engine",
+    client: "Enterprise Organizations (SecNumCloud & PSSI)",
+    description:
+      "Unify your organization's document silos in a certified BM25 and dense vector pipeline. Benefit from cryptographic citation traceability and SecNumCloud/PSSI-compliant multi-tenant isolation.",
+    technologies: ["Next.js"],
+    github: "https://github.com/Misaina23",
   },
   {
     title: "High School Management System",
@@ -266,14 +274,6 @@ export const projectsEn: ProjectEn[] = [
     description:
       "Monitoring and evaluation solutions for humanitarian aid programs: management interfaces, CommCare data collection and beneficiary reporting.",
     technologies: ["CommCare", "Next.js", "Django", "PostgreSQL", "Excel"],
-    github: "https://github.com/Misaina23",
-  },
-  {
-    title: "School Kit Distribution Management",
-    client: "CISCO Midongy Atsimo (2023)",
-    description:
-      "School kit distribution tracking application with complete logistics monitoring and reporting.",
-    technologies: ["React", "Django", "MySQL"],
     github: "https://github.com/Misaina23",
   },
 ];

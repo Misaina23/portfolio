@@ -65,8 +65,8 @@ export function Hero() {
           {/* Sliim Subtitle aligned with CV */}
           <p className="mt-6 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground font-mono">
             {locale === "fr"
-              ? "Développeur web & concepteur de bases de données — Licencié en informatique (ENI), actuellement en Master 2. Plus de 4 ans d'expérience en gestion de données et développement web."
-              : "Web Developer & Database Designer — B.Sc. in Computer Science (ENI), currently in Master 2. Over 4 years of experience in data management and web application development."}
+              ? "Développeur web & concepteur de bases de données — Licencié en informatique (ENI), actuellement en Master 2. Trois ans d'expériences en développement web et gestion de données."
+              : "Web Developer & Database Designer — B.Sc. in Computer Science (ENI), currently in Master 2. Three years of experience in web development and data management."}
           </p>
 
           {/* Sliim Signature Buttons */}
